@@ -30,7 +30,7 @@ if (mode === 'production') {
 
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Form Validation',
+        title: 'Video Player',
         template: path.resolve(__dirname, './src/template.html'),
         filename: 'index.html',
       }),
@@ -105,7 +105,7 @@ if (mode === 'production') {
 
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Form Validation',
+        title: 'Video Player',
         template: path.resolve(__dirname, './src/template.html'),
         filename: 'index.html',
       }),

@@ -4,6 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="./style/index.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="video-controls hidden" id="video-controls">
+      <video
+        controls
+        class="video"
+        id="video"
+        preload="metadata"
+        poster="./assets/images/poster.jpg"
+      >
+         <source src="./assets/images/videoplayback.mp4" type="video/mp4"></source>
+      </video>
+
+      <button data-title="Play (k)" id="play">
+        <svg class="playback-icons">
+          <use href="#play-icon"></use>
+          <use class="hidden" href="#pause"></use>  
+          </svg>
+      </button>
+      
+    </div>
+    
+   
+  
+  </body>
+  <script src="./index.js"></script>
 </html>
