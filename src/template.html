@@ -1,34 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="./style/index.css" />
-  </head>
-  <body>
-    <div class="video-controls hidden" id="video-controls">
-      <video
-        controls
-        class="video"
-        id="video"
-        preload="metadata"
-        poster="./assets/images/poster.jpg"
-      >
-         <source src="./assets/images/videoplayback.mp4" type="video/mp4"></source>
-      </video>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Custom HTML5 Video Player</title>
+  <link rel="stylesheet" href="./style/index.css" type="text/css">
+</head>
+<body>
 
-      <button data-title="Play (k)" id="play">
-        <svg class="playback-icons">
-          <use href="#play-icon"></use>
-          <use class="hidden" href="#pause"></use>  
-          </svg>
-      </button>
-      
-    </div>
-    
-   
-  
-  </body>
-  <script src="./index.js"></script>
+  <script src="index.js"></script>
+
+</body>
 </html>
