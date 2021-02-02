@@ -39,7 +39,6 @@ function videoTime(time) {
   time = Math.floor(time);
   let minutes = Math.floor(time / 60);
   let seconds = Math.floor(time - minutes * 60);
-  console.log(time, minutes, seconds);
 
   let minutesVal = minutes;
   let secondsVal = seconds;
@@ -56,8 +55,20 @@ function videoTime(time) {
 }
 
 function videoProgress() {
-  progress = Math.floor(video.currentTime) / Math.floor(video.durration) / 100;
+  progress = Math.floor(video.currentTime) / (Math.floor(video.duration) / 100);
+
+  progressBar.value = progress;
+  timeCur.innerHTML = videoTime(video.currentTime);
+}
+
+function videoChangeTime(e) {
+  let mouseX = Math.floor(e.pageX - progressBar.offsetLeft);
+  let progress = mouseX / (progressBar.offsetWidth / 100);
+  video.currentTime = video.duration * (progress / 100);
 }
 
 btnPlay.addEventListener('click', playOrPause);
 btnPause.addEventListener('click', playOrPause);
+video.addEventListener('click', playOrPause);
+video.addEventListener('timeupdate', videoProgress);
+progressBar.addEventListener('click', videoChangeTime);
