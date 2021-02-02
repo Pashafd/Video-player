@@ -3,18 +3,15 @@
 const video = document.querySelector('video');
 const btnPlay = document.querySelector('.btnPlay');
 const btnPause = document.querySelector('.btnPause');
-const btnPrev = document.querySelector('#btnPrev');
-const btnStop = document.querySelector('#btnStop');
-const btnNext = document.querySelector('#btnNext');
 
-const soundBar = document.querySelector('#soundBar');
+const volumeBar = document.querySelector('.volumeBar');
 const videoMuteSoundBtn = document.querySelector('.videMute');
 const videoNumber = document.querySelector('#vidNum');
 const downloadVideoBtn = document.querySelector('.downloadVideo');
 const timeCur = document.querySelector('.timeCur');
 const timeVideo = document.querySelector('.timeVideo');
 
-const videoSpeedBar = document.querySelector('#videoSpeed');
+const videoSpeedBar = document.querySelector('.videoSpeed');
 const speedBarIcon = document.querySelector('.fa-running');
 
 const progressBar = document.querySelector('progress');
@@ -71,7 +68,7 @@ function videoChangeTime(e) {
 }
 
 function videoChangeVolume() {
-  let volume = soundBar.value / 100;
+  let volume = volumeBar.value / 100;
   video.valume = volume;
 
   if (volume == 0) {
@@ -90,11 +87,11 @@ function videoDisableVolume() {
   let oldValSound;
   console.log(oldValSound);
 
-  if (soundBar.value == 0) {
-    soundBar.value = oldValSound;
+  if (volumeBar.value == 0) {
+    volumeBar.value = oldValSound;
   } else {
-    oldValSound = soundBar.value;
-    soundBar.value = 0;
+    oldValSound = volumeBar.value;
+    volumeBar.value = 0;
   }
 
   videoChangeVolume();
@@ -119,8 +116,8 @@ function videoChangeSpeed() {
   console.log(video.playbackRate);
 }
 
-function changeSpeedBarVisability() {
-  videoSpeedBar.classList.toggle('hidden');
+function changeVisability(item) {
+  item.classList.toggle('hidden');
 }
 
 btnPlay.addEventListener('click', playOrPause);
@@ -128,7 +125,7 @@ btnPause.addEventListener('click', playOrPause);
 video.addEventListener('click', playOrPause);
 video.addEventListener('timeupdate', videoProgress);
 progressBar.addEventListener('click', videoChangeTime);
-soundBar.addEventListener('change', videoChangeVolume);
-speedBarIcon.addEventListener('click', changeSpeedBarVisability);
+volumeBar.addEventListener('change', videoChangeVolume);
+speedBarIcon.addEventListener('click', () => changeVisability(videoSpeedBar));
 videoSpeedBar.addEventListener('change', videoChangeSpeed);
 videoMuteSoundBtn.addEventListener('click', videoDisableVolume);

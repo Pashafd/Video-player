@@ -141,8 +141,7 @@ body {
 }
 
 .container {
-  width: 80%;
-  height: 100vh;
+  width: 100%;
   padding: 0 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -151,112 +150,184 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  position: relative;
+}
+
+.container .btnFullscreen {
+  position: absolute;
+  right: 2.5rem;
+  top: 0.5rem;
 }
 
 .container video {
   width: 100%;
-}
-
-.container h1 {
-  text-align: center;
-}
-
-.container .options-tree {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 1px;
   position: relative;
 }
 
-.container .options-tree .speedBar {
-  display: inline-block;
+.container h1 {
   position: absolute;
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  right: -50px;
-  bottom: 25px;
+  text-align: center;
+  background: transparent;
+  font-size: 1rem;
+  -webkit-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+  height: 1.5rem;
+  width: 80%;
+  z-index: 10000;
+  opacity: 0;
+  cursor: default;
 }
 
-.container .options-tree .speedBar .videoSpeed {
+.container h1 i {
+  font-size: 1.8rem;
+  color: rgba(184, 182, 182, 0.332);
+}
+
+.container h1:hover {
+  opacity: 0.6;
+}
+
+.container .timeCur,
+.container .timeVideo {
+  opacity: 0.5;
+}
+
+.container .options {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0.2fr 1fr;
+      grid-template-columns: 1fr 0.2fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  padding: 1px;
+  position: absolute;
+  bottom: 10px;
+  width: 85%;
+  -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.container .options .grid-2 {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.container .options .grid-2 .btnPlay {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.container .options i {
+  font-size: 1.8rem;
+  color: rgba(184, 182, 182, 0.332);
+}
+
+.container .options .grid-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.container .options .grid-3 .speedBar {
+  position: relative;
+}
+
+.container .options .grid-3 .speedBar .videoSpeed {
+  position: absolute;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  bottom: -15px;
+  right: -25px;
   width: 65px;
   border-radius: 5px;
+  z-index: 1000;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.container .options .grid-3 .voluneBox {
+  position: relative;
+}
+
+.container .options .grid-3 .voluneBox .volumeBar {
+  position: absolute;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  bottom: -15px;
+  right: -20px;
+  width: 65px;
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0.05;
+}
+
+.container .options .grid-3 .voluneBox .false {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(204, 0, 0, 0.257);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.container .options-tree .speedBar i:hover {
-  color: #0909756e;
-  cursor: pointer;
+.container .options .grid-3 .voluneBox i {
+  width: 30px;
 }
 
-.container .options-tree .timeBar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 0.5rem;
-  font-weight: 500;
-  line-height: 1px;
+.container .options .grid-3 .voluneBox:hover .volumeBar {
+  opacity: 0.5;
 }
 
-.container .options-tree .soundBar {
-  width: 50px;
-}
-
-.container .options-tree a {
-  color: rgba(184, 182, 182, 0.733);
-}
-
-.container .options-tree a i {
-  font-size: 1.8rem;
-}
-
-.container .options-tree a:hover {
-  color: #0909756e;
-}
-
-.container .options-tree .videMute {
-  width: 20px;
-  height: 20px;
-  border-radius: 100px 100px 100px 100px;
-}
-
-.container .options-tree .false {
-  background: #c00;
-}
-
-.container .options-tree .true {
+.container .options .grid-3 .true {
   background: transparent;
 }
 
-.container .options-tree > * {
+.container a {
+  color: rgba(184, 182, 182, 0.332);
+}
+
+.container i {
+  font-size: 1.3rem;
+  color: rgba(184, 182, 182, 0.167);
+}
+
+.container i:hover {
+  color: rgba(184, 182, 182, 0.69);
+  cursor: pointer;
+}
+
+.container a:hover {
+  color: #0909756e;
+}
+
+.options > * {
   padding: 0 2px;
 }
 
-.container progress {
-  width: 90%;
-  height: 5px;
-  margin: 0 15px;
+progress {
+  position: absolute;
+  width: 85%;
+  height: 8px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   cursor: pointer;
+  bottom: 0;
+  z-index: 10;
 }
 
 .hidden {
