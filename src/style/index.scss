@@ -1,6 +1,53 @@
 $font-color: #eee;
 $background-color: #00000f;
 $font-size: 0.8rem;
+$track-color: #eceff1 !default;
+$thumb-color: #333 !default;
+
+$thumb-radius: 2px !default;
+$thumb-height: 15px !default;
+$thumb-width: 8px !default;
+$thumb-shadow-size: 2px !default;
+$thumb-shadow-blur: 2px !default;
+$thumb-shadow-color: rgba(0, 0, 0, 0.2) !default;
+$thumb-border-width: 1px !default;
+$thumb-border-color: #837575 !default;
+
+$track-width: 100% !default;
+$track-height: 6px !default;
+$track-shadow-size: 1px !default;
+$track-shadow-blur: 1px !default;
+$track-shadow-color: rgba(0, 0, 0, 0.2) !default;
+$track-border-width: 1px !default;
+$track-border-color: #837575 !default;
+
+$track-radius: 2px !default;
+$contrast: 10% !default;
+
+$ie-bottom-track-color: darken($track-color, $contrast) !default;
+
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color,
+    0 0 $shadow-size lighten($shadow-color, 5%);
+}
+
+@mixin track {
+  cursor: default;
+  height: $track-height;
+  transition: all 0.2s ease;
+  width: $track-width;
+}
+
+@mixin thumb {
+  @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+  background: $thumb-color;
+  border: $thumb-border-width solid $thumb-border-color;
+  border-radius: $thumb-radius;
+  box-sizing: border-box;
+  cursor: default;
+  height: $thumb-height;
+  width: $thumb-width;
+}
 
 html {
   background-color: $background-color;
@@ -19,56 +66,196 @@ body {
   height: 100vh;
 }
 
+//Sound bar custom style
+
+[type='range'] {
+  -webkit-appearance: none;
+  background: transparent;
+  margin: $thumb-height / 2 0;
+  width: $track-width;
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &:focus {
+    outline: 0;
+
+    &::-webkit-slider-runnable-track {
+      background: lighten($track-color, $contrast);
+    }
+
+    &::-ms-fill-lower {
+      background: $track-color;
+    }
+
+    &::-ms-fill-upper {
+      background: lighten($track-color, $contrast);
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track;
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb;
+    -webkit-appearance: none;
+    margin-top: (
+      (-$track-border-width * 2 + $track-height) / 2 - $thumb-height / 2
+    );
+  }
+
+  &::-moz-range-track {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    @include track;
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+    height: $track-height / 2;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &::-ms-track {
+    @include track;
+    background: transparent;
+    border-color: transparent;
+    border-width: ($thumb-height / 2) 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    background: $ie-bottom-track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: ($track-radius * 2);
+  }
+
+  &::-ms-fill-upper {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: ($track-radius * 2);
+  }
+
+  &::-ms-thumb {
+    @include thumb;
+    margin-top: $track-height / 4;
+  }
+
+  &:disabled {
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb,
+    &::-ms-thumb,
+    &::-webkit-slider-runnable-track,
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+      cursor: not-allowed;
+    }
+  }
+}
+
 .container {
+  width: 80%;
   height: 100vh;
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
+  video {
+    width: 100%;
+  }
+
   h1 {
     text-align: center;
   }
 
-  .progress-tree {
-    background-color: rgba(238, 238, 238, 0.487);
-    margin: 2px 0;
-
-    #progress {
-      background-color: rgb(230, 228, 227);
-      width: 50%;
-      height: 5px;
-    }
+  .videoSpeed {
+    display: block;
+    width: 60px;
+    border-radius: 5px;
+    color: #eee;
+    background-color: #00000f;
   }
 
-  #soundBar-tree {
-    background-color: rgba(238, 238, 238, 0.487);
-    margin: 2px 0;
-    width: 50px;
-
-    #soundBar {
-      background-color: rgb(230, 228, 227);
-      width: 25%;
-      height: 5px;
-    }
-  }
-
-  .buttons-tree {
-    border: 2px solid #333;
+  .options-tree {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    padding: 1px;
+    position: relative;
+
+    .soundBar {
+      width: 50px;
+    }
 
     a {
-      color: #4b4b53;
+      color: rgba(184, 182, 182, 0.733);
+
+      i {
+        font-size: 1.8rem;
+      }
     }
 
     a:hover {
       color: #0909756e;
     }
+
+    .videMute {
+      width: 20px;
+      height: 20px;
+      border-radius: 100px 100px 100px 100px;
+    }
+
+    .false {
+      background: #c00;
+    }
+
+    .true {
+      background: #ccc;
+    }
   }
 
-  .buttons-tree > * {
-    display: inline-block;
-    font-size: 2rem;
+  .options-tree > * {
+    padding: 0 2px;
   }
+
+  progress {
+    width: 90%;
+    height: 5px;
+    margin: 0 15px;
+    align-self: center;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  visibility: visible;
 }
