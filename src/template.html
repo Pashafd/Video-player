@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <h1>Javascript video player</h1>
-      <video controls id="video">
+      <video id="video">
         <source
           src="./assets/video/INTERNET KIDS - JAPAN-i82_tMtsXKM.mp4"
           type="video/mp4"
@@ -30,7 +30,11 @@
           ><i class="fas fa-pause-circle"></i
         ></a>
 
-        <div class="timeOut" id="timeOut">00:00</div>
+        <div class="timeBar">
+          <div class="timeCur">00:00</div>
+          <p>/</p>
+          <div class="timeVideo">00:00</div>
+        </div>
 
         <div class="videMute false" id="videoMute"></div>
         <input

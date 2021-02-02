@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
 $font-color: #eee;
 $background-color: #00000f;
 $font-size: 0.8rem;
@@ -53,6 +55,8 @@ html {
   background-color: $background-color;
   font-size: $font-size;
   color: $font-color;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: -0.4px;
 }
 
 * {
@@ -208,6 +212,16 @@ body {
     align-items: center;
     padding: 1px;
     position: relative;
+
+    .timeBar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 0.5rem;
+      font-weight: 500;
+      line-height: 1px;
+    }
 
     .soundBar {
       width: 50px;

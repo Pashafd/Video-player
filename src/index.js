@@ -11,10 +11,10 @@ const soundBar = document.querySelector('#soundBar');
 const videoNumber = document.querySelector('#vidNum');
 const downloadVideoBtn = document.querySelector('.downloadVideo');
 const videoSpeedBtn = document.querySelector('#videoSpeed');
+const timeCur = document.querySelector('.timeCur');
+const timeVideo = document.querySelector('.timeVideo');
 
 const progressBar = document.querySelector('progress');
-
-console.log(btnPause);
 
 function playOrPause() {
   if (video.paused) {
@@ -24,11 +24,39 @@ function playOrPause() {
   }
 
   changePlayAndPauseButtons();
+
+  if (timeVideo.innerHTML == '00:00') {
+    timeVideo.innerHTML = videoTime(video.duration);
+  }
 }
 
 function changePlayAndPauseButtons() {
   btnPlay.classList.toggle('hidden');
   btnPause.classList.toggle('hidden');
+}
+
+function videoTime(time) {
+  time = Math.floor(time);
+  let minutes = Math.floor(time / 60);
+  let seconds = Math.floor(time - minutes * 60);
+  console.log(time, minutes, seconds);
+
+  let minutesVal = minutes;
+  let secondsVal = seconds;
+
+  if (minutes < 10) {
+    minutesVal = '0' + minutes;
+  }
+
+  if (seconds < 10) {
+    secondsVal = '0' + seconds;
+  }
+
+  return minutesVal + ':' + secondsVal;
+}
+
+function videoProgress() {
+  progress = Math.floor(video.currentTime) / Math.floor(video.durration) / 100;
 }
 
 btnPlay.addEventListener('click', playOrPause);
