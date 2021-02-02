@@ -31,12 +31,52 @@ body {
           justify-content: center;
 }
 
-.container .playButtons {
+.container h1 {
+  text-align: center;
+}
+
+.container .progress-tree {
+  background-color: rgba(238, 238, 238, 0.487);
+  margin: 2px 0;
+}
+
+.container .progress-tree #progress {
+  background-color: #e6e4e3;
+  width: 50%;
+  height: 5px;
+}
+
+.container #soundBar-tree {
+  background-color: rgba(238, 238, 238, 0.487);
+  margin: 2px 0;
+  width: 50px;
+}
+
+.container #soundBar-tree #soundBar {
+  background-color: #e6e4e3;
+  width: 25%;
+  height: 5px;
+}
+
+.container .buttons-tree {
   border: 2px solid #333;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.container .buttons-tree a {
+  color: #4b4b53;
+}
+
+.container .buttons-tree a:hover {
+  color: #0909756e;
+}
+
+.container .buttons-tree > * {
+  display: inline-block;
+  font-size: 2rem;
 }
 /*# sourceMappingURL=index.css.map */

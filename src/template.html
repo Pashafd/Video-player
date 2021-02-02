@@ -16,11 +16,22 @@
   <body>
     <div class="container">
       <h1>Javascript video player</h1>
-      <video id="video">
-        <source src="./assets/video/INTERNET KIDS - JAPAN-i82_tMtsXKM.mp4" />
+      <video controls id="video">
+        <source
+          src="./assets/video/INTERNET KIDS - JAPAN-i82_tMtsXKM.mp4"
+          type="video/mp4"
+        />
       </video>
 
-      <div class="playButtons">
+      <div class="progress-tree">
+        <div id="progress"></div>
+      </div>
+
+      <div id="soundBar-tree">
+        <div id="soundBar"></div>
+      </div>
+
+      <div class="buttons-tree">
         <a href="#" id="btnPlay"><i class="fas fa-play-circle"></i></a>
 
         <a href="#" id="btnPause"><i class="fas fa-pause-circle"></i></a>
@@ -32,7 +43,7 @@
         <a href="#" id="btnPrev"><i class="fas fa-arrow-circle-left"></i></a>
       </div>
       <output id="timeOut">Time: 0</output>
-      <output id="vidNum">Video: 1/1</output>
+      <output id="vidNum">Video: 1/3</output>
     </div>
 
     <script src="index.js"></script>

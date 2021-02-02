@@ -26,9 +26,49 @@ body {
   flex-direction: column;
   justify-content: center;
 
-  .playButtons {
+  h1 {
+    text-align: center;
+  }
+
+  .progress-tree {
+    background-color: rgba(238, 238, 238, 0.487);
+    margin: 2px 0;
+
+    #progress {
+      background-color: rgb(230, 228, 227);
+      width: 50%;
+      height: 5px;
+    }
+  }
+
+  #soundBar-tree {
+    background-color: rgba(238, 238, 238, 0.487);
+    margin: 2px 0;
+    width: 50px;
+
+    #soundBar {
+      background-color: rgb(230, 228, 227);
+      width: 25%;
+      height: 5px;
+    }
+  }
+
+  .buttons-tree {
     border: 2px solid #333;
     display: flex;
     justify-content: space-around;
+
+    a {
+      color: #4b4b53;
+    }
+
+    a:hover {
+      color: #0909756e;
+    }
+  }
+
+  .buttons-tree > * {
+    display: inline-block;
+    font-size: 2rem;
   }
 }
