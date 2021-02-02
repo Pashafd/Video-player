@@ -198,20 +198,32 @@ body {
     text-align: center;
   }
 
-  .videoSpeed {
-    display: block;
-    width: 60px;
-    border-radius: 5px;
-    color: #eee;
-    background-color: #00000f;
-  }
-
   .options-tree {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 1px;
     position: relative;
+
+    .speedBar {
+      display: inline-block;
+      position: absolute;
+
+      transform: rotate(-90deg);
+      right: -50px;
+      bottom: 25px;
+
+      .videoSpeed {
+        width: 65px;
+        border-radius: 5px;
+        flex-direction: column;
+      }
+
+      i:hover {
+        color: #0909756e;
+        cursor: pointer;
+      }
+    }
 
     .timeBar {
       display: flex;
@@ -250,7 +262,7 @@ body {
     }
 
     .true {
-      background: #ccc;
+      background: transparent;
     }
   }
 
@@ -263,6 +275,7 @@ body {
     height: 5px;
     margin: 0 15px;
     align-self: center;
+    cursor: pointer;
   }
 }
 

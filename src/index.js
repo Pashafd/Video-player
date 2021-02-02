@@ -8,11 +8,14 @@ const btnStop = document.querySelector('#btnStop');
 const btnNext = document.querySelector('#btnNext');
 
 const soundBar = document.querySelector('#soundBar');
+const videoMuteSoundBtn = document.querySelector('.videMute');
 const videoNumber = document.querySelector('#vidNum');
 const downloadVideoBtn = document.querySelector('.downloadVideo');
-const videoSpeedBtn = document.querySelector('#videoSpeed');
 const timeCur = document.querySelector('.timeCur');
 const timeVideo = document.querySelector('.timeVideo');
+
+const videoSpeedBar = document.querySelector('#videoSpeed');
+const speedBarIcon = document.querySelector('.fa-running');
 
 const progressBar = document.querySelector('progress');
 
@@ -67,8 +70,65 @@ function videoChangeTime(e) {
   video.currentTime = video.duration * (progress / 100);
 }
 
+function videoChangeVolume() {
+  let volume = soundBar.value / 100;
+  video.valume = volume;
+
+  if (volume == 0) {
+    videoMuteSoundBtn.classList.remove('true');
+    videoMuteSoundBtn.classList.add('false');
+  } else {
+    video.volume = 0;
+    videoMuteSoundBtn.classList.remove('false');
+    videoMuteSoundBtn.classList.add('true');
+  }
+
+  changeVolumeIcon(volume);
+}
+
+function videoDisableVolume() {
+  let oldValSound;
+  console.log(oldValSound);
+
+  if (soundBar.value == 0) {
+    soundBar.value = oldValSound;
+  } else {
+    oldValSound = soundBar.value;
+    soundBar.value = 0;
+  }
+
+  videoChangeVolume();
+}
+
+function changeVolumeIcon(volume) {
+  let volumeDown = document.querySelector('.fa-volume-down');
+  let volumeUp = document.querySelector('.fa-volume-up');
+
+  if (volume < 0.5) {
+    volumeDown.classList.remove('hidden');
+    volumeUp.classList.add('hidden');
+  } else {
+    volumeDown.classList.add('hidden');
+    volumeUp.classList.remove('hidden');
+  }
+}
+
+function videoChangeSpeed() {
+  let speed = videoSpeedBar.value / 100;
+  video.playbackRate = speed;
+  console.log(video.playbackRate);
+}
+
+function changeSpeedBarVisability() {
+  videoSpeedBar.classList.toggle('hidden');
+}
+
 btnPlay.addEventListener('click', playOrPause);
 btnPause.addEventListener('click', playOrPause);
 video.addEventListener('click', playOrPause);
 video.addEventListener('timeupdate', videoProgress);
 progressBar.addEventListener('click', videoChangeTime);
+soundBar.addEventListener('change', videoChangeVolume);
+speedBarIcon.addEventListener('click', changeSpeedBarVisability);
+videoSpeedBar.addEventListener('change', videoChangeSpeed);
+videoMuteSoundBtn.addEventListener('click', videoDisableVolume);

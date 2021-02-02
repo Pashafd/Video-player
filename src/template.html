@@ -36,7 +36,10 @@
           <div class="timeVideo">00:00</div>
         </div>
 
-        <div class="videMute false" id="videoMute"></div>
+        <div class="videMute true" id="videoMute">
+          <i class="fas fa-volume-up"></i>
+          <i class="fas fa-volume-down hidden"></i>
+        </div>
         <input
           type="range"
           value="100"
@@ -59,16 +62,18 @@
           download
         ></a>
 
-        <select title="Скорость" class="videoSpeed" id="videoSpeed">
-          <option value="25">x0.25</option>
-          <option value="50">x0.50</option>
-          <option value="75">x0.75</option>
-          <option value="100" selected>x1.00</option>
-          <option value="125">x1.25</option>
-          <option value="150">x1.50</option>
-          <option value="175">x1.75</option>
-          <option value="200">x2.00</option>
-        </select>
+        <div class="speedBar">
+          <input
+            type="range"
+            value="100"
+            min="7"
+            max="200"
+            title="Speed"
+            class="videoSpeed hidden"
+            id="videoSpeed"
+          />
+        </div>
+        <i class="fas fa-running"></i>
       </div>
 
       <progress
