@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Custom HTML5 Video Player</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./style/index.css" type="text/css" />
   </head>
   <body>
@@ -13,17 +19,20 @@
       <video id="video">
         <source src="./assets/video/INTERNET KIDS - JAPAN-i82_tMtsXKM.mp4" />
       </video>
-      <output id="timeOut">Time: 0</output>
-      <output id="vidNum">Video: 1/1</output>
 
       <div class="playButtons">
-        <button id="btnPlay">Play</button>
-        <button id="btnPause">Pause</button>
-        <button id="btnStop">Stop</button>
+        <a href="#" id="btnPlay"><i class="fas fa-play-circle"></i></a>
+
+        <a href="#" id="btnPause"><i class="fas fa-pause-circle"></i></a>
+
+        <a href="#" id="btnStop"><i class="fas fa-stop-circle"></i></a>
+
+        <a href="#" id="btnNext"><i class="fas fa-arrow-circle-right"></i></a>
+
+        <a href="#" id="btnPrev"><i class="fas fa-arrow-circle-left"></i></a>
       </div>
-      <div id="nextButtons">
-        <button id="btnNext">Next video</button>
-      </div>
+      <output id="timeOut">Time: 0</output>
+      <output id="vidNum">Video: 1/1</output>
     </div>
 
     <script src="index.js"></script>
