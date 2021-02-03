@@ -19,6 +19,10 @@ const progressBar = document.querySelector('progress');
 const setingsVideoBtn = document.querySelector('#setingsVideo');
 const setingsVideoBox = document.querySelector('.setingsVideo-box');
 
+const fullscreenBtn = document.querySelector('.btnFullscreen');
+
+const optionsBar = document.querySelector('.options');
+
 function playOrPause() {
   if (video.paused) {
     video.play();
@@ -122,6 +126,16 @@ function changeVisability(item) {
   item.classList.toggle('hidden');
 }
 
+function toggleFullScreen() {
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitRequestFullScreen) {
+    vid.webkitRequestFullScreen();
+  } else if (vid.mozRequestFullScreen) {
+    vid.mozRequestFullScreen();
+  }
+}
+
 btnPlay.addEventListener('click', playOrPause);
 btnPause.addEventListener('click', playOrPause);
 video.addEventListener('click', playOrPause);
@@ -133,3 +147,5 @@ setingsVideoBtn.addEventListener('click', () =>
 );
 videoSpeedBar.addEventListener('change', videoChangeSpeed);
 videoMuteSoundBtn.addEventListener('click', videoDisableVolume);
+
+fullscreenBtn.addEventListener('click', toggleFullScreen);
