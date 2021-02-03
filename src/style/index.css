@@ -48,7 +48,7 @@ body {
 
 [type='range']::-webkit-slider-runnable-track {
   cursor: default;
-  height: 6px;
+  height: 3px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   width: 100%;
@@ -71,20 +71,20 @@ body {
   height: 15px;
   width: 8px;
   -webkit-appearance: none;
-  margin-top: -5.5px;
+  margin-top: -7px;
 }
 
 [type='range']::-moz-range-track {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1px rgba(13, 13, 13, 0.2);
   cursor: default;
-  height: 6px;
+  height: 3px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   width: 100%;
   background: #eceff1;
   border: 1px solid #837575;
   border-radius: 2px;
-  height: 3px;
+  height: 1.5px;
 }
 
 [type='range']::-moz-range-thumb {
@@ -100,7 +100,7 @@ body {
 
 [type='range']::-ms-track {
   cursor: default;
-  height: 6px;
+  height: 3px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   width: 100%;
@@ -133,7 +133,7 @@ body {
   cursor: default;
   height: 15px;
   width: 8px;
-  margin-top: 1.5px;
+  margin-top: 0.75px;
 }
 
 [type='range']:disabled::-webkit-slider-thumb, [type='range']:disabled::-moz-range-thumb, [type='range']:disabled::-ms-thumb, [type='range']:disabled::-webkit-slider-runnable-track, [type='range']:disabled::-ms-fill-lower, [type='range']:disabled::-ms-fill-upper {
@@ -223,6 +223,36 @@ body {
 }
 
 .container .options .grid-3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  position: relative;
+}
+
+.container .options .grid-3 .timeVideo {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.container .options .grid-3 #setingsVideo {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.container .options .grid-3 .setingsVideo-box {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+}
+
+.container .options .grid-3 .setingsVideo-box i {
+  padding: 0.3rem;
+}
+
+.container .options .grid-3 .setingsVideo-box .soundBar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -230,44 +260,19 @@ body {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
-.container .options .grid-3 .speedBar {
-  position: relative;
+.container .options .grid-3 .setingsVideo-box .speedBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
-.container .options .grid-3 .speedBar .videoSpeed {
-  position: absolute;
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-  bottom: -15px;
-  right: -25px;
-  width: 65px;
-  border-radius: 5px;
-  z-index: 1000;
-  opacity: 0.5;
-  cursor: pointer;
-}
-
-.container .options .grid-3 .voluneBox {
-  position: relative;
-}
-
-.container .options .grid-3 .voluneBox .volumeBar {
-  position: absolute;
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-  bottom: -15px;
-  right: -20px;
-  width: 65px;
-  border-radius: 5px;
-  z-index: 1000;
-  opacity: 0.05;
-}
-
-.container .options .grid-3 .voluneBox .false {
+.container .options .grid-3 .false {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -284,11 +289,7 @@ body {
           flex-direction: column;
 }
 
-.container .options .grid-3 .voluneBox i {
-  width: 30px;
-}
-
-.container .options .grid-3 .voluneBox:hover .volumeBar {
+.container .options .grid-3 .fa-volume-up:hover .volumeBar {
   opacity: 0.5;
 }
 
@@ -303,11 +304,11 @@ body {
 .container i {
   font-size: 1.3rem;
   color: rgba(184, 182, 182, 0.167);
+  cursor: pointer;
 }
 
 .container i:hover {
   color: rgba(184, 182, 182, 0.69);
-  cursor: pointer;
 }
 
 .container a:hover {

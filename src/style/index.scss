@@ -16,7 +16,7 @@ $thumb-border-width: 1px !default;
 $thumb-border-color: #837575 !default;
 
 $track-width: 100% !default;
-$track-height: 6px !default;
+$track-height: 3px !default;
 $track-shadow-size: 1px !default;
 $track-shadow-blur: 1px !default;
 $track-shadow-color: rgba(0, 0, 0, 0.2) !default;
@@ -252,59 +252,84 @@ body {
     }
 
     .grid-3 {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-around;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      position: relative;
 
-      .speedBar {
-        position: relative;
-        .videoSpeed {
-          position: absolute;
-          transform: rotate(-180deg);
-          bottom: -15px;
-          right: -25px;
+      .timeVideo {
+        justify-self: end;
+      }
 
-          width: 65px;
-          border-radius: 5px;
-          z-index: 1000;
+      #setingsVideo {
+        justify-self: end;
+      }
 
-          opacity: 0.5;
-          cursor: pointer;
+      .setingsVideo-box {
+        position: absolute;
+        bottom: 30px;
+        right: 0;
+
+        i {
+          padding: 0.3rem;
+        }
+
+        .soundBar {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+
+        .speedBar {
+          display: flex;
+          flex-direction: row-reverse;
         }
       }
 
-      .voluneBox {
-        position: relative;
+      // .speedBar {
+      // position: relative;
+      // .videoSpeed {
+      //     position: absolute;
+      //     transform: rotate(-180deg);
+      //     bottom: -15px;
+      //     right: -25px;
 
+      //     width: 65px;
+      //     border-radius: 5px;
+      //     z-index: 1000;
+
+      //     opacity: 0.5;
+      //     cursor: pointer;
+      //   }
+      // }
+
+      // .voluneBox {
+      //   position: relative;
+
+      //   .volumeBar {
+      //     position: absolute;
+      //     transform: rotate(-180deg);
+      //     bottom: -15px;
+      //     right: -20px;
+
+      //     width: 65px;
+      //     border-radius: 5px;
+      //     z-index: 1000;
+
+      //     opacity: 0.05;
+      //   }
+      // }
+
+      .false {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(204, 0, 0, 0.257);
+        flex-direction: column;
+      }
+
+      .fa-volume-up:hover {
         .volumeBar {
-          position: absolute;
-          transform: rotate(-180deg);
-          bottom: -15px;
-          right: -20px;
-
-          width: 65px;
-          border-radius: 5px;
-          z-index: 1000;
-
-          opacity: 0.05;
-        }
-
-        .false {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: rgba(204, 0, 0, 0.257);
-          flex-direction: column;
-        }
-
-        i {
-          width: 30px;
-        }
-
-        &:hover {
-          .volumeBar {
-            opacity: 0.5;
-          }
+          opacity: 0.5;
         }
       }
 
@@ -321,11 +346,11 @@ body {
   i {
     font-size: 1.3rem;
     color: rgba(184, 182, 182, 0.167);
+    cursor: pointer;
   }
 
   i:hover {
     color: rgba(184, 182, 182, 0.69);
-    cursor: pointer;
   }
 
   a:hover {

@@ -16,6 +16,9 @@ const speedBarIcon = document.querySelector('.fa-running');
 
 const progressBar = document.querySelector('progress');
 
+const setingsVideoBtn = document.querySelector('#setingsVideo');
+const setingsVideoBox = document.querySelector('.setingsVideo-box');
+
 function playOrPause() {
   if (video.paused) {
     video.play();
@@ -113,7 +116,6 @@ function changeVolumeIcon(volume) {
 function videoChangeSpeed() {
   let speed = videoSpeedBar.value / 100;
   video.playbackRate = speed;
-  console.log(video.playbackRate);
 }
 
 function changeVisability(item) {
@@ -126,6 +128,8 @@ video.addEventListener('click', playOrPause);
 video.addEventListener('timeupdate', videoProgress);
 progressBar.addEventListener('click', videoChangeTime);
 volumeBar.addEventListener('change', videoChangeVolume);
-speedBarIcon.addEventListener('click', () => changeVisability(videoSpeedBar));
+setingsVideoBtn.addEventListener('click', () =>
+  changeVisability(setingsVideoBox)
+);
 videoSpeedBar.addEventListener('change', videoChangeSpeed);
 videoMuteSoundBtn.addEventListener('click', videoDisableVolume);
