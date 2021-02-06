@@ -19,44 +19,54 @@
         <video controls id="video">
           <source
             src="./assets/video/INTERNET KIDS - JAPAN-i82_tMtsXKM.mp4"
-            type="video/mp4">
+            type="video/mp4"
+          />
         </video>
-          <i class="fas fa-expand-alt btnFullscreen"></i>
-          
+
+        <progress
+          value="0"
+          max="100"
+          class="videoProgress-bar"
+          id="videoProgress-bar"
+        ></progress>
+        
+        <i class="fas fa-expand-alt btnFullscreen"></i>
+
         <div class="options">
           <div class="grid-1">
-          <a href="#" class="btnPlay"><i class="fas fa-play-circle"></i></a>
-          <a href="#" class="btnPause hidden"><i class="fas fa-pause-circle"></i></a>
-        </div>
+            <a href="#" class="btnPlay"><i class="fas fa-play-circle"></i></a>
+            <a href="#" class="btnPause hidden"
+              ><i class="fas fa-pause-circle"></i
+            ></a>
+          </div>
 
-        <div class="grid-2">
-          <div class="setingsVideo-box hidden">
-            <div class="soundBar">
+          <div class="grid-2">
+            <div class="setingsVideo-box hidden">
+              <div class="soundBar">
                 <input
-                type="range"
-                value="100"
-                max="100"
-                title="Громкость"
-                class=" volumeBar"
-                id=" volumeBar"
-              />
-              <i class="fas fa-volume-up videoMute" id="videoMute"></i>
-              
-            </div> 
+                  type="range"
+                  value="100"
+                  max="100"
+                  title="Громкость"
+                  class="volumeBar"
+                  id=" volumeBar"
+                />
+                <i class="fas fa-volume-up videoMute" id="videoMute"></i>
+              </div>
 
               <div class="speedBar">
-                  <input
+                <input
                   type="range"
-                    value="100"
-                    min="7"
-                    max="200"
-                    title="Speed"
-                    class="videoSpeed"
-                    id="videoSpeed"
-                  />
-                  <i class="fas fa-running speedBtn"></i>
+                  value="100"
+                  min="7"
+                  max="200"
+                  title="Speed"
+                  class="videoSpeed"
+                  id="videoSpeed"
+                />
+                <i class="fas fa-running speedBtn"></i>
               </div>
-          </div>
+            </div>
 
             <i class="fas fa-cog" id="setingsVideo"></i>
 
@@ -64,19 +74,10 @@
               <div class="timeVideo">00:00</div>
               <div class="timeCur">00:00</div>
             </div>
+          </div>
         </div>
-
       </div>
-
-      <progress
-        value="0"
-        max="100"
-        class="videoProgress-bar"
-        id="videoProgress-bar"
-      ></progress>
     </div>
-  </div>
-</div>
 
     <script src="index.js"></script>
   </body>

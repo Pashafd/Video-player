@@ -85,10 +85,24 @@ if (supportsVideo) {
     timeCur.innerHTML = videoTime(video.currentTime);
   }
 
-  function videoChangeTime(e) {
-    let mouseX = Math.floor(e.pageX - progressBar.offsetLeft);
-    let progress = mouseX / (progressBar.offsetWidth / 100);
-    video.currentTime = video.duration * (progress / 100);
+  // Set the play position of the video based on the mouse click at x
+  function setPlayPosition(e) {
+    let value = (e.pageX - findPos(progressBar)).toFixed(2);
+    let timeToSet = (
+      (video.duration / progressBar.offsetWidth).toFixed(2) * value
+    ).toFixed(2);
+    video.currentTime = timeToSet;
+  }
+
+  // Find the real position of obj
+  function findPos(obj) {
+    let curleft = 0;
+    if (obj.offsetParent) {
+      do {
+        curleft += obj.offsetLeft;
+      } while ((obj = obj.offsetParent));
+    }
+    return curleft;
   }
 
   function changeVolume() {
@@ -143,7 +157,7 @@ if (supportsVideo) {
 
   video.addEventListener('timeupdate', videoProgress);
 
-  progressBar.addEventListener('click', videoChangeTime);
+  progressBar.addEventListener('click', setPlayPosition);
 
   volumeBar.addEventListener('change', changeVolume);
 
