@@ -184,10 +184,8 @@ body {
 
 .container {
   width: 100%;
-  padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   position: relative;
 
   .btnFullscreen {
@@ -235,7 +233,7 @@ body {
     grid-template-rows: 1fr;
     padding: 1px;
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     width: 85%;
     align-self: center;
 
@@ -285,40 +283,6 @@ body {
         }
       }
 
-      // .speedBar {
-      // position: relative;
-      // .videoSpeed {
-      //     position: absolute;
-      //     transform: rotate(-180deg);
-      //     bottom: -15px;
-      //     right: -25px;
-
-      //     width: 65px;
-      //     border-radius: 5px;
-      //     z-index: 1000;
-
-      //     opacity: 0.5;
-      //     cursor: pointer;
-      //   }
-      // }
-
-      // .voluneBox {
-      //   position: relative;
-
-      //   .volumeBar {
-      //     position: absolute;
-      //     transform: rotate(-180deg);
-      //     bottom: -15px;
-      //     right: -20px;
-
-      //     width: 65px;
-      //     border-radius: 5px;
-      //     z-index: 1000;
-
-      //     opacity: 0.05;
-      //   }
-      // }
-
       .false {
         display: flex;
         justify-content: center;
@@ -365,11 +329,13 @@ body {
 progress {
   position: absolute;
   width: 85%;
-  height: 8px;
+  height: 15px;
   align-self: center;
   cursor: pointer;
   bottom: 0;
   z-index: 10;
+  opacity: 0.2;
+  padding: 0 10px;
 }
 
 .hidden {

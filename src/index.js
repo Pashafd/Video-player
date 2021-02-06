@@ -1,7 +1,18 @@
 // import './style/index.scss';
 // import style
 
+const volumeBar = document.querySelector('.volumeBar');
+const videoMuteSoundBtn = document.querySelector('.videMute');
+const timeCur = document.querySelector('.timeCur');
+const timeVideo = document.querySelector('.timeVideo');
+const videoSpeedBar = document.querySelector('.videoSpeed');
+const speedBarIcon = document.querySelector('.fa-running');
+const progressBar = document.querySelector('#videoProgress-bar');
+const setingsVideoBtn = document.querySelector('#setingsVideo');
+const setingsVideoBox = document.querySelector('.setingsVideo-box');
+const fullscreenBtn = document.querySelector('.btnFullscreen');
 const supportsVideo = !!document.createElement('video').canPlayType;
+
 if (supportsVideo) {
   const videoContainer = document.querySelector('.container');
   const video = document.querySelector('video');
@@ -10,26 +21,8 @@ if (supportsVideo) {
   const btnPlay = document.querySelector('.btnPlay');
   const btnPause = document.querySelector('.btnPause');
 
-  const volumeBar = document.querySelector('.volumeBar');
-  const videoMuteSoundBtn = document.querySelector('.videMute');
-  const videoNumber = document.querySelector('#vidNum');
-  const downloadVideoBtn = document.querySelector('.downloadVideo');
-  const timeCur = document.querySelector('.timeCur');
-  const timeVideo = document.querySelector('.timeVideo');
-
-  const videoSpeedBar = document.querySelector('.videoSpeed');
-  const speedBarIcon = document.querySelector('.fa-running');
-
-  const progressBar = document.querySelector('progress');
-
-  const setingsVideoBtn = document.querySelector('#setingsVideo');
-  const setingsVideoBox = document.querySelector('.setingsVideo-box');
-
-  const fullscreenBtn = document.querySelector('.btnFullscreen');
-
   //hide defoult controls
   video.controls = false;
-
   //display cust controls
   videoControls.style.display = 'grid';
 
@@ -66,7 +59,7 @@ if (supportsVideo) {
   }
 
   function videoProgress() {
-    progress =
+    let progress =
       Math.floor(video.currentTime) / (Math.floor(video.duration) / 100);
 
     progressBar.value = progress;
@@ -77,6 +70,8 @@ if (supportsVideo) {
     let mouseX = Math.floor(e.pageX - progressBar.offsetLeft);
     let progress = mouseX / (progressBar.offsetWidth / 100);
     video.currentTime = video.duration * (progress / 100);
+
+    console.log(progress);
   }
 
   function changeVolume() {
@@ -84,12 +79,10 @@ if (supportsVideo) {
     video.valume = volume;
 
     if (volume == 0) {
-      //   videoMuteSoundBtn.classList.remove('true');
       videoMuteSoundBtn.classList.toggle('false');
     } else {
       video.volume = 0;
       videoMuteSoundBtn.classList.toggle('false');
-      //   videoMuteSoundBtn.classList.add('true');
     }
 
     changeVolumeIcon(volume);
@@ -117,18 +110,6 @@ if (supportsVideo) {
     item.classList.toggle('hidden');
   }
 
-  function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      video.requestFullscreen().catch((err) => {
-        alert(
-          `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
-        );
-      });
-    } else {
-      document.exitFullscreen();
-    }
-  }
-
   const fullScreenEnabled = !!(
     document.fullscreenEnabled ||
     document.createElement('video').webkitRequestFullScreen
@@ -145,6 +126,7 @@ if (supportsVideo) {
     } else {
       if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
       setFullscreenData(true);
+      video.width = '100%';
     }
   };
 
@@ -185,7 +167,9 @@ if (supportsVideo) {
   });
 
   video.addEventListener('timeupdate', videoProgress);
+
   progressBar.addEventListener('click', videoChangeTime);
+
   volumeBar.addEventListener('change', changeVolume);
 
   setingsVideoBtn.addEventListener('click', () =>
@@ -199,6 +183,5 @@ if (supportsVideo) {
     volumeBar.value = 0;
   });
 
-  // fullscreenBtn.addEventListener('click', toggleFullscreen);
   fullscreenBtn.addEventListener('click', handleFullscreen);
 }
