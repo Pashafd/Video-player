@@ -93,8 +93,7 @@ if (supportsVideo) {
 
   function changeVolume() {
     let volume = volumeBar.value / 100;
-    video.valume = volume;
-    console.log(video.volume, volume);
+    video.volume = volume;
   }
 
   function videoChangeSpeed() {
@@ -161,7 +160,8 @@ if (supportsVideo) {
 
     if (!video.muted) {
       videoMuteSoundBtn.classList.remove('false');
-      volumeBar.value = video.volume;
+      volumeBar.value = video.volume * 100;
+      console.dir(video);
     }
   });
 
