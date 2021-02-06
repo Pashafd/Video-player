@@ -155,7 +155,7 @@ body {
             background-color: aliceblue;
             border-radius: 50%;
             position: absolute;
-            top: -10px;
+            top: 0;
             right: 0;
             bottom: 0;
             left: 0;
@@ -197,8 +197,8 @@ body {
 
         #setingsVideo {
           justify-self: end;
-          height: 30px;
         }
+
         #setingsVideo:active {
           animation: roll 0.2s ease-in-out;
         }
@@ -210,6 +210,8 @@ body {
           border: 2px solid #00000f;
           padding: 0.5rem;
           background-color: #00000f49;
+          animation: fadeIn 1s ease-in;
+          transition: all ease 2s;
 
           i {
             padding: 0.3rem;
@@ -320,6 +322,16 @@ body {
   }
   100% {
     transform: scale(0.001, 0.001);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
     opacity: 1;
   }
 }

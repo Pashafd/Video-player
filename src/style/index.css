@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 html {
   background-color: #00000f;
   font-size: 0.8rem;
@@ -9,7 +9,7 @@ html {
 
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -62,7 +62,7 @@ body {
   border: 0px solid #5b5656;
   border-radius: 0px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   cursor: default;
   height: 10px;
   width: 5px;
@@ -78,8 +78,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .container .video-container {
@@ -89,8 +89,8 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   position: relative;
 }
 
@@ -100,18 +100,18 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   right: 0.5rem;
   top: 0.5rem;
 }
 
 .container .video-container .btnFullscreen:active {
   -webkit-animation: effect_dylan 0.2s ease-in-out;
-          animation: effect_dylan 0.2s ease-in-out;
+  animation: effect_dylan 0.2s ease-in-out;
 }
 
 .container .video-container video {
@@ -133,20 +133,20 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
   padding: 1px;
   position: absolute;
   bottom: 20px;
   width: 95%;
   -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
 }
 
 .container .video-container .options .grid-1 {
   -ms-grid-column-align: start;
-      justify-self: start;
+  justify-self: start;
 }
 
 .container .video-container .options .grid-1 .btnPlay,
@@ -168,7 +168,7 @@ body {
   bottom: 0;
   left: 0;
   -webkit-transform: scale(0.001, 0.001);
-          transform: scale(0.001, 0.001);
+  transform: scale(0.001, 0.001);
 }
 
 .container .video-container .options .grid-1 .btnPlay:active,
@@ -180,7 +180,7 @@ body {
 .container .video-container .options .grid-1 .btnPlay:active:before,
 .container .video-container .options .grid-1 .btnPause:active:before {
   -webkit-animation: effect_dylan 0.4s ease-out;
-          animation: effect_dylan 0.4s ease-out;
+  animation: effect_dylan 0.4s ease-out;
 }
 
 .container .video-container .options i {
@@ -192,9 +192,9 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
   position: relative;
 }
 
@@ -205,22 +205,21 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .container .video-container .options .grid-2 #setingsVideo {
   -ms-grid-column-align: end;
-      justify-self: end;
-  height: 30px;
+  justify-self: end;
 }
 
 .container .video-container .options .grid-2 #setingsVideo:active {
   -webkit-animation: roll 0.2s ease-in-out;
-          animation: roll 0.2s ease-in-out;
+  animation: roll 0.2s ease-in-out;
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box {
@@ -230,6 +229,7 @@ body {
   border: 2px solid #00000f;
   padding: 0.5rem;
   background-color: #00000f49;
+  animation: fadeIn 1s ease;
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box i {
@@ -243,8 +243,8 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box .speedBar {
@@ -253,8 +253,8 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .container .video-container .options .grid-2 .false {
@@ -262,16 +262,16 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: rgba(204, 0, 0, 0.257);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .container .video-container .options .grid-2 .fa-volume-up:hover .volumeBar {
@@ -309,8 +309,8 @@ body {
   width: 95%;
   height: 15px;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   cursor: pointer;
   bottom: 0;
   z-index: 10;
@@ -325,34 +325,34 @@ body {
 @-webkit-keyframes roll {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes roll {
   0% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @-webkit-keyframes scale {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
     opacity: 1;
   }
 }
@@ -360,12 +360,12 @@ body {
 @keyframes scale {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    transform: scale(1.5);
     opacity: 1;
   }
 }
@@ -373,17 +373,17 @@ body {
 @-webkit-keyframes effect_dylan {
   50% {
     -webkit-transform: scale(1.5, 1.5);
-            transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
     opacity: 0;
   }
   99% {
     -webkit-transform: scale(0.001, 0.001);
-            transform: scale(0.001, 0.001);
+    transform: scale(0.001, 0.001);
     opacity: 0;
   }
   100% {
     -webkit-transform: scale(0.001, 0.001);
-            transform: scale(0.001, 0.001);
+    transform: scale(0.001, 0.001);
     opacity: 1;
   }
 }
@@ -391,18 +391,29 @@ body {
 @keyframes effect_dylan {
   50% {
     -webkit-transform: scale(1.5, 1.5);
-            transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
     opacity: 0;
   }
   99% {
     -webkit-transform: scale(0.001, 0.001);
-            transform: scale(0.001, 0.001);
+    transform: scale(0.001, 0.001);
     opacity: 0;
   }
   100% {
     -webkit-transform: scale(0.001, 0.001);
-            transform: scale(0.001, 0.001);
+    transform: scale(0.001, 0.001);
     opacity: 1;
   }
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */

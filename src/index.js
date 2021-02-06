@@ -1,22 +1,23 @@
 // import './style/index.scss';
 // import style
 
-const volumeBar = document.querySelector('.volumeBar');
-const videoMuteSoundBtn = document.querySelector('.videoMute');
-const timeVideo = document.querySelector('.timeVideo');
-const timeCur = document.querySelector('.timeCur');
-const videoSpeedBar = document.querySelector('.videoSpeed');
-const speedBarBtn = document.querySelector('.speedBtn');
-const progressBar = document.querySelector('#videoProgress-bar');
-const setingsVideoBtn = document.querySelector('#setingsVideo');
-const setingsVideoBox = document.querySelector('.setingsVideo-box');
-const fullscreenBtn = document.querySelector('.btnFullscreen');
 const supportsVideo = !!document.createElement('video').canPlayType;
-
+//if browser can play start
 if (supportsVideo) {
+  const volumeBar = document.querySelector('.volumeBar');
+  const videoMuteSoundBtn = document.querySelector('.videoMute');
+  const timeVideo = document.querySelector('.timeVideo');
+  const timeCur = document.querySelector('.timeCur');
+  const videoSpeedBar = document.querySelector('.videoSpeed');
+  const speedBarBtn = document.querySelector('.speedBtn');
+  const progressBar = document.querySelector('#videoProgress-bar');
+  const setingsVideoBtn = document.querySelector('#setingsVideo');
+  const setingsVideoBox = document.querySelector('.setingsVideo-box');
+  const fullscreenBtn = document.querySelector('.btnFullscreen');
   const videoContainer = document.querySelector('.container');
   const video = document.querySelector('video');
   const videoControls = document.querySelector('.options');
+  const icon = document.querySelectorAll('i');
 
   const btnPlay = document.querySelector('.btnPlay');
   const btnPause = document.querySelector('.btnPause');
@@ -40,9 +41,11 @@ if (supportsVideo) {
     if (isFullScreen()) {
       if (document.exitFullscreen) document.exitFullscreen();
       setFullscreenData(false);
+      icon.forEach((item) => (item.style.fontSize = '1.5rem'));
     } else {
       if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
       setFullscreenData(true);
+      icon.forEach((item) => (item.style.fontSize = '2.5rem'));
     }
   };
 
