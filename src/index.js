@@ -3,8 +3,8 @@
 
 const volumeBar = document.querySelector('.volumeBar');
 const videoMuteSoundBtn = document.querySelector('.videMute');
-const timeCur = document.querySelector('.timeCur');
 const timeVideo = document.querySelector('.timeVideo');
+const timeCur = document.querySelector('.timeCur');
 const videoSpeedBar = document.querySelector('.videoSpeed');
 const speedBarIcon = document.querySelector('.fa-running');
 const progressBar = document.querySelector('#videoProgress-bar');
@@ -61,7 +61,6 @@ if (supportsVideo) {
   function videoProgress() {
     let progress =
       Math.floor(video.currentTime) / (Math.floor(video.duration) / 100);
-
     progressBar.value = progress;
     timeCur.innerHTML = videoTime(video.currentTime);
   }
