@@ -201,7 +201,7 @@ body {
   padding: 1px;
   position: absolute;
   bottom: 20px;
-  width: 85%;
+  width: 95%;
   -ms-grid-row-align: center;
       align-self: center;
 }
@@ -233,10 +233,16 @@ body {
           transform: scale(0.001, 0.001);
 }
 
-.container .options .grid-2 .btnPlay:before,
-.container .options .grid-2 .btnPause:before {
-  -webkit-animation: effect_dylan 0.8s ease-out;
-          animation: effect_dylan 0.8s ease-out;
+.container .options .grid-2 .btnPlay:active,
+.container .options .grid-2 .btnPause:active {
+  outline: 0;
+  color: #fff;
+}
+
+.container .options .grid-2 .btnPlay:active:before,
+.container .options .grid-2 .btnPause:active:before {
+  -webkit-animation: effect_dylan 0.4s ease-out;
+          animation: effect_dylan 0.4s ease-out;
 }
 
 .container .options i {
@@ -259,6 +265,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -356,13 +366,15 @@ body {
 }
 
 progress {
-  position: relative;
-  width: 85%;
+  position: absolute;
+  width: 95%;
   height: 15px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   cursor: pointer;
+  bottom: 0;
+  z-index: 10;
   opacity: 0.2;
   padding: 0 10px;
 }
@@ -373,12 +385,10 @@ progress {
 
 @-webkit-keyframes roll {
   0% {
-    opacity: 0;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
   100% {
-    opacity: 0.9;
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
@@ -386,12 +396,10 @@ progress {
 
 @keyframes roll {
   0% {
-    opacity: 0;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
   100% {
-    opacity: 0.9;
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }

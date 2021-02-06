@@ -234,7 +234,7 @@ body {
     padding: 1px;
     position: absolute;
     bottom: 20px;
-    width: 85%;
+    width: 95%;
     align-self: center;
 
     .grid-2 {
@@ -243,7 +243,6 @@ body {
       .btnPlay,
       .btnPause {
         position: relative;
-
         cursor: pointer;
         transition: all 0.4s ease-in;
 
@@ -251,7 +250,6 @@ body {
           content: '';
           background-color: aliceblue;
           border-radius: 50%;
-          // display: block;
           position: absolute;
           top: -10px;
           right: 0;
@@ -260,11 +258,16 @@ body {
           transform: scale(0.001, 0.001);
         }
 
-        &:before {
-          animation: effect_dylan 0.8s ease-out;
+        &:active {
+          outline: 0;
+          color: #fff;
+          &:before {
+            animation: effect_dylan 0.4s ease-out;
+          }
         }
       }
     }
+
     i {
       font-size: 1.8rem;
       color: rgba(184, 182, 182, 0.332);
@@ -279,6 +282,7 @@ body {
       .times {
         justify-self: end;
         display: flex;
+        flex-direction: row-reverse;
         align-items: center;
       }
 
@@ -357,14 +361,13 @@ body {
 }
 
 progress {
-  // position: absolute;
-  position: relative;
-  width: 85%;
+  position: absolute;
+  width: 95%;
   height: 15px;
   align-self: center;
   cursor: pointer;
-  // bottom: 0;
-  // z-index: 10;
+  bottom: 0;
+  z-index: 10;
   opacity: 0.2;
   padding: 0 10px;
 }
@@ -375,12 +378,10 @@ progress {
 
 @keyframes roll {
   0% {
-    opacity: 0;
     transform: rotate(0deg);
   }
 
   100% {
-    opacity: 0.9;
     transform: rotate(360deg);
   }
 }
