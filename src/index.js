@@ -166,4 +166,5 @@ if (supportsVideo) {
   });
 
   fullscreenBtn.addEventListener('click', handleFullscreen);
+  video.addEventListener('dblclick', handleFullscreen);
 }
