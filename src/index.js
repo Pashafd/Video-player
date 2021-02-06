@@ -6,7 +6,7 @@ const videoMuteSoundBtn = document.querySelector('.videoMute');
 const timeVideo = document.querySelector('.timeVideo');
 const timeCur = document.querySelector('.timeCur');
 const videoSpeedBar = document.querySelector('.videoSpeed');
-const speedBarIcon = document.querySelector('.fa-running');
+const speedBarBtn = document.querySelector('.speedBtn');
 const progressBar = document.querySelector('#videoProgress-bar');
 const setingsVideoBtn = document.querySelector('#setingsVideo');
 const setingsVideoBox = document.querySelector('.setingsVideo-box');
@@ -152,6 +152,10 @@ if (supportsVideo) {
   );
 
   videoSpeedBar.addEventListener('change', videoChangeSpeed);
+  speedBarBtn.addEventListener('click', () => {
+    video.playbackRate = 1;
+    videoSpeedBar.value = 100;
+  });
 
   videoMuteSoundBtn.addEventListener('click', () => {
     video.muted = !video.muted;
