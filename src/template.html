@@ -15,68 +15,68 @@
   </head>
   <body>
     <div class="container">
-      <h1>Javascript video player</h1>
-      <video controls id="video">
-        <source
-          src="./assets/video/INTERNET KIDS - JAPAN-i82_tMtsXKM.mp4"
-          type="video/mp4">
-      </video>
-        <i class="fas fa-expand-alt btnFullscreen"></i>
-        
-      <div class="options">
+      <div class="video-container">
+        <video controls id="video">
+          <source
+            src="./assets/video/INTERNET KIDS - JAPAN-i82_tMtsXKM.mp4"
+            type="video/mp4">
+        </video>
+          <i class="fas fa-expand-alt btnFullscreen"></i>
+          
+        <div class="options">
+          <div class="grid-1">
+          <a href="#" class="btnPlay"><i class="fas fa-play-circle"></i></a>
+          <a href="#" class="btnPause hidden"><i class="fas fa-pause-circle"></i></a>
+        </div>
+
         <div class="grid-2">
-        <a href="#" class="btnPlay"><i class="fas fa-play-circle"></i></a>
-        <a href="#" class="btnPause hidden"><i class="fas fa-pause-circle"></i></a>
-      </div>
-
-      <div class="grid-3">
-         <div class="setingsVideo-box hidden">
-           <div class="soundBar">
-              <input
-              type="range"
-              value="100"
-              max="100"
-              title="Громкость"
-              class=" volumeBar"
-              id=" volumeBar"
-            />
-            <i class="fas fa-volume-up videoMute" id="videoMute"></i>
-            
-          </div> 
-
-            <div class="speedBar">
+          <div class="setingsVideo-box hidden">
+            <div class="soundBar">
                 <input
-                 type="range"
-                  value="100"
-                  min="7"
-                  max="200"
-                  title="Speed"
-                  class="videoSpeed"
-                  id="videoSpeed"
-                />
-                <i class="fas fa-running"></i>
-            </div>
-         </div>
+                type="range"
+                value="100"
+                max="100"
+                title="Громкость"
+                class=" volumeBar"
+                id=" volumeBar"
+              />
+              <i class="fas fa-volume-up videoMute" id="videoMute"></i>
+              
+            </div> 
 
-          <i class="fas fa-cog" id="setingsVideo"></i>
-
-          <div class="times">
-            <div class="timeVideo">00:00</div>
-            <div class="timeCur">00:00</div>
+              <div class="speedBar">
+                  <input
+                  type="range"
+                    value="100"
+                    min="7"
+                    max="200"
+                    title="Speed"
+                    class="videoSpeed"
+                    id="videoSpeed"
+                  />
+                  <i class="fas fa-running"></i>
+              </div>
           </div>
+
+            <i class="fas fa-cog" id="setingsVideo"></i>
+
+            <div class="times">
+              <div class="timeVideo">00:00</div>
+              <div class="timeCur">00:00</div>
+            </div>
+        </div>
+
       </div>
 
+      <progress
+        value="0"
+        max="100"
+        class="videoProgress-bar"
+        id="videoProgress-bar"
+      ></progress>
     </div>
-
-     <progress
-      value="0"
-      max="100"
-      class="videoProgress-bar"
-      id="videoProgress-bar"
-     ></progress>
-   </div>
+  </div>
 </div>
- 
 
     <script src="index.js"></script>
   </body>
