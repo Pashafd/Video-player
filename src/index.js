@@ -11,7 +11,7 @@ if (supportsVideo) {
   const videoSpeedBar = document.querySelector('.videoSpeed');
   const speedBarBtn = document.querySelector('.speedBtn');
   const progressBar = document.querySelector('#videoProgress-bar');
-  const setingsVideoBtn = document.querySelector('#setingsVideo');
+  const setingsVideoBtn = document.querySelector('.setingsVideo');
   const setingsVideoBox = document.querySelector('.setingsVideo-box');
   const fullscreenBtn = document.querySelector('.btnFullscreen');
   const videoContainer = document.querySelector('.container');

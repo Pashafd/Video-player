@@ -2,18 +2,18 @@
 
 $font-color: #eee;
 $background-color: #00000f;
-$font-size: 0.8rem;
-$track-color: #eceff189 !default;
-$thumb-color: rgb(7, 0, 0) !default;
-$thumb-height: 10px !default;
-$thumb-width: 5px !default;
-$thumb-border-width: 0px !default;
-$thumb-border-color: #5b5656 !default;
-$track-width: 100% !default;
-$track-height: 5px !default;
-$track-border-color: #ffffff81 !default;
-$contrast: 10% !default;
-$ie-bottom-track-color: darken($track-color, $contrast) !default;
+$track-color: #eceff189;
+$thumb-color: rgb(7, 0, 0);
+$thumb-border-color: #5b5656;
+$track-border-color: #ffffff81;
+
+$font-size: 1.5rem;
+$thumb-height: 10px;
+$thumb-width: 5px;
+$thumb-border-width: 1px;
+$track-width: 100%;
+$track-height: 5px;
+$contrast: 10%;
 
 @mixin track {
   cursor: default;
@@ -24,7 +24,7 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 
 @mixin thumb {
   background: $thumb-color;
-  border: $thumb-border-width solid $thumb-border-color;
+  // border: $thumb-border-width solid $thumb-border-color;
   box-sizing: border-box;
   cursor: default;
   height: $thumb-height;
@@ -63,31 +63,21 @@ body {
   &:focus {
     outline: 0;
 
-    &::-webkit-slider-runnable-track {
-      background: lighten($track-color, $contrast);
-    }
-
     &::-ms-fill-lower {
       background: $track-color;
-    }
-
-    &::-ms-fill-upper {
-      background: lighten($track-color, $contrast);
     }
   }
 
   &::-webkit-slider-runnable-track {
     @include track;
     background: $track-color;
-    border: $track-border-width solid $track-border-color;
+    border: 1px solid $thumb-color;
   }
 
   &::-webkit-slider-thumb {
     @include thumb;
     -webkit-appearance: none;
-    margin-top: (
-      (-$track-border-width * 2 + $track-height) / 2 - $thumb-height / 2
-    );
+    margin-top: ((-1px * 2 + $track-height) / 2 - $thumb-height / 2);
   }
 }
 
@@ -97,6 +87,7 @@ body {
   margin: auto;
   display: flex;
   align-items: center;
+
   .video-container {
     width: 100%;
     display: flex;
@@ -141,6 +132,15 @@ body {
       width: 95%;
       align-self: center;
 
+      i {
+        color: rgba(184, 182, 182, 0.653);
+        font-size: 1.5rem;
+      }
+
+      i:hover {
+        color: rgba(69, 66, 66, 0.83);
+      }
+
       .grid-1 {
         justify-self: start;
 
@@ -150,10 +150,10 @@ body {
           cursor: pointer;
           transition: all 0.4s ease-in;
 
-          &:before {
+          &::after {
             content: '';
             background-color: aliceblue;
-            border-radius: 50%;
+            border-radius: 100%;
             position: absolute;
             top: 0;
             right: 0;
@@ -165,16 +165,11 @@ body {
           &:active {
             outline: 0;
             color: #fff;
-            &:before {
+            &::after {
               animation: effect_dylan 0.4s ease-out;
             }
           }
         }
-      }
-
-      i {
-        font-size: 1.8rem;
-        color: rgba(184, 182, 182, 0.332);
       }
 
       .grid-2 {
@@ -195,11 +190,11 @@ body {
           }
         }
 
-        #setingsVideo {
+        .setingsVideo {
           justify-self: end;
         }
 
-        #setingsVideo:active {
+        .setingsVideo:active {
           animation: roll 0.2s ease-in-out;
         }
 
@@ -212,11 +207,6 @@ body {
           background-color: #00000f49;
           animation: fadeIn 1s ease-in;
           transition: all ease 2s;
-
-          i {
-            padding: 0.3rem;
-            width: 40%;
-          }
 
           .soundBar {
             display: flex;
@@ -247,24 +237,6 @@ body {
           background: transparent;
         }
       }
-    }
-
-    a {
-      color: rgba(184, 182, 182, 0.332);
-    }
-
-    i {
-      font-size: 1.3rem;
-      color: rgba(184, 182, 182, 0.483);
-      cursor: pointer;
-    }
-
-    i:hover {
-      color: rgba(184, 182, 182, 0.83);
-    }
-
-    a:hover {
-      color: #0909756e;
     }
   }
 
@@ -329,9 +301,11 @@ body {
 @keyframes fadeIn {
   0% {
     opacity: 0;
+    bottom: -100%;
   }
 
   100% {
     opacity: 1;
+    bottom: 3rem;
   }
 }
