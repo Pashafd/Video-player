@@ -222,9 +222,14 @@ body {
     opacity: 0.6;
   }
 
+  .timeCur {
+    border-right: 2px solid #fff;
+  }
+
   .timeCur,
   .timeVideo {
     opacity: 0.5;
+    padding: 0 0.5rem;
   }
 
   .options {
@@ -304,6 +309,7 @@ body {
 
         i {
           padding: 0.3rem;
+          width: 40%;
         }
 
         .soundBar {
