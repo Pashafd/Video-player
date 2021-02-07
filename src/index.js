@@ -24,8 +24,6 @@ if (supportsVideo) {
 
   //hide defoult controls
   video.controls = false;
-  //display cust controls
-  videoControls.style.display = 'grid';
 
   // Fullscreen mode
   const fullScreenEnabled = !!(
@@ -61,12 +59,12 @@ if (supportsVideo) {
     if (isFullScreen()) {
       icon.forEach((item) => (item.style.fontSize = '1rem'));
       videoControls.classList.remove('hoverVideoControls');
-      progressBar.classList.remove('hoverVideoControls');
+      // progressBar.classList.remove('hoverVideoControls');
       fullscreenBtn.classList.remove('hoverVideoControls');
     } else {
       icon.forEach((item) => (item.style.fontSize = '1.5rem'));
       videoControls.classList.add('hoverVideoControls');
-      progressBar.classList.add('hoverVideoControls');
+      // progressBar.classList.add('hoverVideoControls');
       fullscreenBtn.classList.add('hoverVideoControls');
     }
   }
