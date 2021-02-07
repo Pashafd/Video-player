@@ -62,10 +62,12 @@ if (supportsVideo) {
       icon.forEach((item) => (item.style.fontSize = '1rem'));
       videoControls.classList.remove('hoverVideoControls');
       progressBar.classList.remove('hoverVideoControls');
+      fullscreenBtn.classList.remove('hoverVideoControls');
     } else {
       icon.forEach((item) => (item.style.fontSize = '1.5rem'));
       videoControls.classList.add('hoverVideoControls');
       progressBar.classList.add('hoverVideoControls');
+      fullscreenBtn.classList.add('hoverVideoControls');
     }
   }
 
@@ -117,7 +119,7 @@ if (supportsVideo) {
     video.currentTime = timeToSet;
   }
 
-  // Find the real position of obj
+  // Find the position in progressBar
   function findPos(obj) {
     let curleft = 0;
     if (obj.offsetParent) {
@@ -138,8 +140,26 @@ if (supportsVideo) {
     video.playbackRate = speed;
   }
 
+  function returnDefoultSpeedValue() {
+    video.playbackRate = 1;
+    videoSpeedBar.value = 100;
+  }
+
   function changeVisability(item) {
     item.classList.toggle('hidden');
+  }
+
+  //Mute volume
+  function muteVolume() {
+    video.muted = !video.muted;
+    volumeBar.value = 0;
+    videoMuteSoundBtn.classList.add('false');
+
+    if (!video.muted) {
+      videoMuteSoundBtn.classList.remove('false');
+      volumeBar.value = video.volume * 100;
+      console.dir(video);
+    }
   }
 
   //LISTENER
@@ -171,33 +191,14 @@ if (supportsVideo) {
   });
 
   video.addEventListener('timeupdate', videoProgress);
-
   progressBar.addEventListener('click', setPlayPosition);
-
   volumeBar.addEventListener('change', changeVolume);
-
   setingsVideoBtn.addEventListener('click', () =>
     changeVisability(setingsVideoBox)
   );
-
   videoSpeedBar.addEventListener('change', videoChangeSpeed);
-  speedBarBtn.addEventListener('click', () => {
-    video.playbackRate = 1;
-    videoSpeedBar.value = 100;
-  });
-
-  videoMuteSoundBtn.addEventListener('click', () => {
-    video.muted = !video.muted;
-    volumeBar.value = 0;
-    videoMuteSoundBtn.classList.add('false');
-
-    if (!video.muted) {
-      videoMuteSoundBtn.classList.remove('false');
-      volumeBar.value = video.volume * 100;
-      console.dir(video);
-    }
-  });
-
+  speedBarBtn.addEventListener('click', returnDefoultSpeedValue);
+  videoMuteSoundBtn.addEventListener('click', muteVolume);
   fullscreenBtn.addEventListener('click', handleFullscreen);
   video.addEventListener('dblclick', handleFullscreen);
 }
