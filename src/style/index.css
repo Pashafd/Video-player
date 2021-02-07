@@ -34,7 +34,7 @@ body {
 }
 
 [type='range']:focus::-ms-fill-lower {
-  background: #eceff189;
+  background: #ffffff;
 }
 
 [type='range']::-webkit-slider-runnable-track {
@@ -43,12 +43,13 @@ body {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   width: 100%;
-  background: #eceff189;
+  background: #ffffff;
   border: 1px solid #070000;
 }
 
 [type='range']::-webkit-slider-thumb {
   background: #070000;
+  border: 1px solid #ffffff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: default;
@@ -56,6 +57,15 @@ body {
   width: 5px;
   -webkit-appearance: none;
   margin-top: -3.5px;
+}
+
+i {
+  color: rgba(184, 182, 182, 0.653);
+  font-size: 1rem;
+}
+
+i:hover {
+  color: rgba(69, 66, 66, 0.83);
 }
 
 .container {
@@ -95,6 +105,9 @@ body {
           justify-content: center;
   right: 0.5rem;
   top: 0.5rem;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .container .video-container .btnFullscreen:active {
@@ -132,15 +145,6 @@ body {
       align-self: center;
 }
 
-.container .video-container .options i {
-  color: rgba(184, 182, 182, 0.653);
-  font-size: 1.5rem;
-}
-
-.container .video-container .options i:hover {
-  color: rgba(69, 66, 66, 0.83);
-}
-
 .container .video-container .options .grid-1 {
   -ms-grid-column-align: start;
       justify-self: start;
@@ -176,8 +180,8 @@ body {
 
 .container .video-container .options .grid-1 .btnPlay:active::after,
 .container .video-container .options .grid-1 .btnPause:active::after {
-  -webkit-animation: effect_dylan 0.4s ease-out;
-          animation: effect_dylan 0.4s ease-out;
+  -webkit-animation: effect_dylan 0.2s ease-out;
+          animation: effect_dylan 0.2s ease-out;
 }
 
 .container .video-container .options .grid-2 {
@@ -199,9 +203,10 @@ body {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-size: 0.8rem;
 }
 
 .container .video-container .options .grid-2 .times .timeVideo,
@@ -212,6 +217,12 @@ body {
 .container .video-container .options .grid-2 .setingsVideo {
   -ms-grid-column-align: end;
       justify-self: end;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .container .video-container .options .grid-2 .setingsVideo:active {
@@ -223,11 +234,9 @@ body {
   position: absolute;
   bottom: 135%;
   right: 12%;
-  border: 2px solid #00000f;
-  padding: 0.5rem;
-  background-color: #00000f49;
-  -webkit-animation: fadeIn 1s ease-in;
-          animation: fadeIn 1s ease-in;
+  padding: 0.2rem;
+  -webkit-animation: fadeIn 0.2s ease;
+          animation: fadeIn 0.2s ease;
   -webkit-transition: all ease 2s;
   transition: all ease 2s;
 }
@@ -240,6 +249,13 @@ body {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  border: 1px solid #00000f;
+  background-color: #00000f49;
+}
+
+.container .video-container .options .grid-2 .setingsVideo-box .soundBar i {
+  padding: 0.3rem;
+  font-size: 1rem;
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box .speedBar {
@@ -250,6 +266,13 @@ body {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  border: 1px solid #00000f;
+  border-top: none;
+  background-color: #00000f49;
+}
+
+.container .video-container .options .grid-2 .setingsVideo-box .speedBar i {
+  padding: 0.3rem;
 }
 
 .container .video-container .options .grid-2 .false {
@@ -284,19 +307,26 @@ body {
 .container progress {
   position: absolute;
   width: 95%;
-  height: 15px;
+  height: 25px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   cursor: pointer;
   bottom: 0;
   z-index: 10;
-  opacity: 0.2;
   padding: 0 10px;
 }
 
 .container .hidden {
   display: none;
+}
+
+.hoverVideoControls {
+  opacity: 0;
+}
+
+.hoverVideoControls:hover {
+  opacity: 1;
 }
 
 @-webkit-keyframes roll {
@@ -402,6 +432,24 @@ body {
   100% {
     opacity: 1;
     bottom: 3rem;
+  }
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 /*# sourceMappingURL=index.css.map */

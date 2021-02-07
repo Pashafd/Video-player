@@ -27,7 +27,7 @@ if (supportsVideo) {
   //display cust controls
   videoControls.style.display = 'grid';
 
-  //Fullscreen mode
+  // Fullscreen mode
   const fullScreenEnabled = !!(
     document.fullscreenEnabled ||
     document.createElement('video').webkitRequestFullScreen
@@ -41,13 +41,33 @@ if (supportsVideo) {
     if (isFullScreen()) {
       if (document.exitFullscreen) document.exitFullscreen();
       setFullscreenData(false);
-      icon.forEach((item) => (item.style.fontSize = '1.5rem'));
     } else {
       if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
       setFullscreenData(true);
-      icon.forEach((item) => (item.style.fontSize = '2.5rem'));
     }
+
+    changeStyleInFullScreen();
   };
+
+  const isFullScreen = function () {
+    return !!document.fullscreenElement;
+  };
+
+  const setFullscreenData = function (state) {
+    videoContainer.setAttribute('data-fullscreen', !!state);
+  };
+
+  function changeStyleInFullScreen() {
+    if (isFullScreen()) {
+      icon.forEach((item) => (item.style.fontSize = '1rem'));
+      videoControls.classList.remove('hoverVideoControls');
+      progressBar.classList.remove('hoverVideoControls');
+    } else {
+      icon.forEach((item) => (item.style.fontSize = '1.5rem'));
+      videoControls.classList.add('hoverVideoControls');
+      progressBar.classList.add('hoverVideoControls');
+    }
+  }
 
   function playOrPause() {
     if (video.paused || video.ended) {
@@ -121,14 +141,6 @@ if (supportsVideo) {
   function changeVisability(item) {
     item.classList.toggle('hidden');
   }
-
-  const isFullScreen = function () {
-    return !!document.fullscreenElement;
-  };
-
-  const setFullscreenData = function (state) {
-    videoContainer.setAttribute('data-fullscreen', !!state);
-  };
 
   //LISTENER
   btnPlay.addEventListener('click', () => {

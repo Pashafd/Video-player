@@ -2,10 +2,10 @@
 
 $font-color: #eee;
 $background-color: #00000f;
-$track-color: #eceff189;
+$track-color: #ffffff;
 $thumb-color: rgb(7, 0, 0);
-$thumb-border-color: #5b5656;
-$track-border-color: #ffffff81;
+$thumb-border-color: #ffffff;
+$track-border-color: #ffffff;
 
 $font-size: 1.5rem;
 $thumb-height: 10px;
@@ -24,7 +24,7 @@ $contrast: 10%;
 
 @mixin thumb {
   background: $thumb-color;
-  // border: $thumb-border-width solid $thumb-border-color;
+  border: $thumb-border-width solid $thumb-border-color;
   box-sizing: border-box;
   cursor: default;
   height: $thumb-height;
@@ -71,7 +71,7 @@ body {
   &::-webkit-slider-runnable-track {
     @include track;
     background: $track-color;
-    border: 1px solid $thumb-color;
+    border: $thumb-border-width solid $thumb-color;
   }
 
   &::-webkit-slider-thumb {
@@ -79,6 +79,15 @@ body {
     -webkit-appearance: none;
     margin-top: ((-1px * 2 + $track-height) / 2 - $thumb-height / 2);
   }
+}
+
+i {
+  color: rgba(184, 182, 182, 0.653);
+  font-size: 1rem;
+}
+
+i:hover {
+  color: rgba(69, 66, 66, 0.83);
 }
 
 .container {
@@ -101,6 +110,8 @@ body {
       justify-content: center;
       right: 0.5rem;
       top: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in;
 
       &:active {
         animation: effect_dylan 0.2s ease-in-out;
@@ -132,15 +143,6 @@ body {
       width: 95%;
       align-self: center;
 
-      i {
-        color: rgba(184, 182, 182, 0.653);
-        font-size: 1.5rem;
-      }
-
-      i:hover {
-        color: rgba(69, 66, 66, 0.83);
-      }
-
       .grid-1 {
         justify-self: start;
 
@@ -166,7 +168,7 @@ body {
             outline: 0;
             color: #fff;
             &::after {
-              animation: effect_dylan 0.4s ease-out;
+              animation: effect_dylan 0.2s ease-out;
             }
           }
         }
@@ -182,7 +184,8 @@ body {
           justify-self: end;
           display: flex;
           flex-direction: row-reverse;
-          align-items: center;
+          align-items: flex-end;
+          font-size: 0.8rem;
 
           .timeVideo,
           .timeCur {
@@ -192,6 +195,9 @@ body {
 
         .setingsVideo {
           justify-self: end;
+          align-self: center;
+          cursor: pointer;
+          transition: all 0.2s ease-in;
         }
 
         .setingsVideo:active {
@@ -202,20 +208,32 @@ body {
           position: absolute;
           bottom: 135%;
           right: 12%;
-          border: 2px solid #00000f;
-          padding: 0.5rem;
-          background-color: #00000f49;
-          animation: fadeIn 1s ease-in;
+          padding: 0.2rem;
+          animation: fadeIn 0.2s ease;
           transition: all ease 2s;
 
           .soundBar {
             display: flex;
             flex-direction: row-reverse;
+            border: 1px solid #00000f;
+            background-color: #00000f49;
+
+            i {
+              padding: 0.3rem;
+              font-size: 1rem;
+            }
           }
 
           .speedBar {
             display: flex;
             flex-direction: row-reverse;
+            border: 1px solid #00000f;
+            border-top: none;
+            background-color: #00000f49;
+
+            i {
+              padding: 0.3rem;
+            }
           }
         }
 
@@ -247,17 +265,24 @@ body {
   progress {
     position: absolute;
     width: 95%;
-    height: 15px;
+    height: 25px;
     align-self: center;
     cursor: pointer;
     bottom: 0;
     z-index: 10;
-    opacity: 0.2;
     padding: 0 10px;
   }
 
   .hidden {
     display: none;
+  }
+}
+
+.hoverVideoControls {
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
   }
 }
 
@@ -307,5 +332,15 @@ body {
   100% {
     opacity: 1;
     bottom: 3rem;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
