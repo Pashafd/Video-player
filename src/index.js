@@ -61,7 +61,7 @@ if (supportsVideo) {
       videoControls.classList.remove('hoverVideoControls');
       fullscreenBtn.classList.remove('hoverVideoControls');
     } else {
-      icon.forEach((item) => (item.style.fontSize = '1rem'));
+      icon.forEach((item) => (item.style.fontSize = '1.7rem'));
       videoControls.classList.add('hoverVideoControls');
       fullscreenBtn.classList.add('hoverVideoControls');
     }

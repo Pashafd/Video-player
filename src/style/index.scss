@@ -7,7 +7,7 @@ $thumb-color: rgb(7, 0, 0);
 $thumb-border-color: #ffffff;
 $track-border-color: #ffffff;
 
-$font-size: 1.5rem;
+$font-size: 0.7rem;
 $thumb-height: 10px;
 $thumb-width: 5px;
 $thumb-border-width: 1px;
@@ -121,7 +121,8 @@ i:hover {
 
     video {
       width: 100%;
-      position: relative;
+      height: 100%;
+      // position: relative;
     }
 
     .timeCur {
@@ -137,7 +138,7 @@ i:hover {
       bottom: 0;
       width: 100%;
       align-self: center;
-      border: 2px solid #00000f;
+      border: 1px solid #00000f;
       background-color: #00000fb8;
       transition: 0.3s all ease;
 
@@ -258,16 +259,12 @@ i:hover {
             opacity: 0.5;
           }
         }
-
-        .true {
-          background: transparent;
-        }
       }
     }
   }
 
   .options > * {
-    padding: 0 2px;
+    padding: 0 3px;
   }
 
   progress {
@@ -281,10 +278,6 @@ i:hover {
     z-index: 10;
     padding: 0 10px;
   }
-
-  .hidden {
-    display: none;
-  }
 }
 
 .hoverVideoControls {
@@ -293,6 +286,10 @@ i:hover {
   &:hover {
     opacity: 1;
   }
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes roll {
