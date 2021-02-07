@@ -83,7 +83,7 @@ body {
 
 i {
   color: rgba(184, 182, 182, 0.653);
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 
 i:hover {
@@ -128,26 +128,22 @@ i:hover {
       border-right: 2px solid #fff;
     }
 
-    .timeCur,
-    .timeVideo {
-      opacity: 0.5;
-      padding: 0 0.5rem;
-    }
-
     .options {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 20px;
       padding-bottom: 25px;
       position: absolute;
-      bottom: 20px;
-      width: 95%;
+      bottom: 0;
+      width: 100%;
       align-self: center;
       border: 2px solid #00000f;
+      background-color: #00000fb8;
       transition: 0.3s all ease;
 
       .grid-1 {
         justify-self: start;
+        align-self: center;
 
         .btnPlay,
         .btnPause {
@@ -178,29 +174,30 @@ i:hover {
       }
 
       .grid-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+        display: flex;
+        justify-content: flex-end;
         position: relative;
+        align-items: center;
 
         .times {
           justify-self: end;
           display: flex;
           flex-direction: row-reverse;
           align-items: flex-end;
-          font-size: 0.8rem;
+          font-size: 0.3rem;
 
           .timeVideo,
           .timeCur {
             cursor: default;
+            padding: 0.1rem;
+            opacity: 0.5;
           }
         }
 
         .setingsVideo {
-          justify-self: end;
-          align-self: center;
           cursor: pointer;
           transition: all 0.2s ease-in;
+          padding: 0.2rem;
         }
 
         .setingsVideo:active {
@@ -210,22 +207,10 @@ i:hover {
         .setingsVideo-box {
           position: absolute;
           bottom: 135%;
-          right: 12%;
+          right: 10%;
           padding: 0.2rem;
           animation: fadeIn 0.2s ease;
           transition: all ease 2s;
-
-          .soundBar {
-            display: flex;
-            flex-direction: row-reverse;
-            border: 1px solid #00000f;
-            background-color: #00000f49;
-
-            i {
-              padding: 0.3rem;
-              font-size: 1rem;
-            }
-          }
 
           .speedBar {
             display: flex;
@@ -237,6 +222,26 @@ i:hover {
             i {
               padding: 0.3rem;
             }
+          }
+        }
+
+        .soundBar {
+          display: flex;
+          flex-direction: row-reverse;
+          position: relative;
+
+          &:hover input {
+            visibility: visible;
+          }
+
+          input {
+            position: absolute;
+            bottom: 40px;
+            right: -10px;
+            width: 50px;
+            visibility: hidden;
+            transition: 0.2s ease all;
+            transform: rotate(-90deg);
           }
         }
 

@@ -61,7 +61,7 @@ body {
 
 i {
   color: rgba(184, 182, 182, 0.653);
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 
 i:hover {
@@ -125,26 +125,21 @@ i:hover {
   border-right: 2px solid #fff;
 }
 
-.container .video-container .timeCur,
-.container .video-container .timeVideo {
-  opacity: 0.5;
-  padding: 0 0.5rem;
-}
-
 .container .video-container .options {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  -ms-grid-rows: 20px;
+      grid-template-rows: 20px;
   padding-bottom: 25px;
   position: absolute;
-  bottom: 20px;
-  width: 95%;
+  bottom: 0;
+  width: 100%;
   -ms-grid-row-align: center;
       align-self: center;
   border: 2px solid #00000f;
+  background-color: #00000fb8;
   -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
 }
@@ -152,6 +147,9 @@ i:hover {
 .container .video-container .options .grid-1 {
   -ms-grid-column-align: start;
       justify-self: start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .container .video-container .options .grid-1 .btnPlay,
@@ -189,13 +187,16 @@ i:hover {
 }
 
 .container .video-container .options .grid-2 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .container .video-container .options .grid-2 .times {
@@ -210,23 +211,21 @@ i:hover {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  font-size: 0.8rem;
+  font-size: 0.3rem;
 }
 
 .container .video-container .options .grid-2 .times .timeVideo,
 .container .video-container .options .grid-2 .times .timeCur {
   cursor: default;
+  padding: 0.1rem;
+  opacity: 0.5;
 }
 
 .container .video-container .options .grid-2 .setingsVideo {
-  -ms-grid-column-align: end;
-      justify-self: end;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
   cursor: pointer;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  padding: 0.2rem;
 }
 
 .container .video-container .options .grid-2 .setingsVideo:active {
@@ -237,29 +236,12 @@ i:hover {
 .container .video-container .options .grid-2 .setingsVideo-box {
   position: absolute;
   bottom: 135%;
-  right: 12%;
+  right: 10%;
   padding: 0.2rem;
   -webkit-animation: fadeIn 0.2s ease;
           animation: fadeIn 0.2s ease;
   -webkit-transition: all ease 2s;
   transition: all ease 2s;
-}
-
-.container .video-container .options .grid-2 .setingsVideo-box .soundBar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  border: 1px solid #00000f;
-  background-color: #00000f49;
-}
-
-.container .video-container .options .grid-2 .setingsVideo-box .soundBar i {
-  padding: 0.3rem;
-  font-size: 1rem;
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box .speedBar {
@@ -277,6 +259,33 @@ i:hover {
 
 .container .video-container .options .grid-2 .setingsVideo-box .speedBar i {
   padding: 0.3rem;
+}
+
+.container .video-container .options .grid-2 .soundBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  position: relative;
+}
+
+.container .video-container .options .grid-2 .soundBar:hover input {
+  visibility: visible;
+}
+
+.container .video-container .options .grid-2 .soundBar input {
+  position: absolute;
+  bottom: 40px;
+  right: -10px;
+  width: 50px;
+  visibility: hidden;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 .container .video-container .options .grid-2 .false {

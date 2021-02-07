@@ -57,14 +57,12 @@ if (supportsVideo) {
 
   function changeStyleInFullScreen() {
     if (isFullScreen()) {
-      icon.forEach((item) => (item.style.fontSize = '1rem'));
+      icon.forEach((item) => (item.style.fontSize = '0.7rem'));
       videoControls.classList.remove('hoverVideoControls');
-      // progressBar.classList.remove('hoverVideoControls');
       fullscreenBtn.classList.remove('hoverVideoControls');
     } else {
-      icon.forEach((item) => (item.style.fontSize = '1.5rem'));
+      icon.forEach((item) => (item.style.fontSize = '1rem'));
       videoControls.classList.add('hoverVideoControls');
-      // progressBar.classList.add('hoverVideoControls');
       fullscreenBtn.classList.add('hoverVideoControls');
     }
   }
@@ -156,7 +154,6 @@ if (supportsVideo) {
     if (!video.muted) {
       videoMuteSoundBtn.classList.remove('false');
       volumeBar.value = video.volume * 100;
-      console.dir(video);
     }
   }
 
