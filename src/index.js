@@ -3,6 +3,7 @@
 
 const supportsVideo = !!document.createElement('video').canPlayType;
 //if browser can play start
+
 if (supportsVideo) {
   const volumeBar = document.querySelector('.volumeBar');
   const videoMuteSoundBtn = document.querySelector('.videoMute');
@@ -57,11 +58,9 @@ if (supportsVideo) {
 
   function changeStyleInFullScreen() {
     if (isFullScreen()) {
-      icon.forEach((item) => (item.style.fontSize = '0.7rem'));
       videoControls.classList.remove('hoverVideoControls');
       fullscreenBtn.classList.remove('hoverVideoControls');
     } else {
-      icon.forEach((item) => (item.style.fontSize = '1.7rem'));
       videoControls.classList.add('hoverVideoControls');
       fullscreenBtn.classList.add('hoverVideoControls');
     }
@@ -196,4 +195,15 @@ if (supportsVideo) {
   videoMuteSoundBtn.addEventListener('click', muteVolume);
   fullscreenBtn.addEventListener('click', handleFullscreen);
   video.addEventListener('dblclick', handleFullscreen);
+
+  document.addEventListener('keydown', function (event) {
+    let s = Math.floor(
+      video.currentTime - Math.floor(video.currentTime / 60) * 60
+    );
+    if (event.key === 'ArrowRight' && video.played) {
+      video.currentTime += 10 * s;
+    } else if (event.key == 'ArrowLeft' && video.played) {
+      video.currentTime -= 10 * s;
+    }
+  });
 }

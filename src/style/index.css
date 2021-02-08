@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
 html {
-  background-color: #00000f;
+  background-color: #1111ab;
   font-size: 0.7rem;
-  color: #eee;
+  color: #fcfbfb;
   font-family: 'Sriracha', cursive;
 }
 
@@ -98,7 +98,7 @@ progress::-moz-progress-bar {
 
 i {
   color: rgba(184, 182, 182, 0.653);
-  font-size: 0.7rem;
+  font-size: 1.7rem;
 }
 
 i:hover {
@@ -172,7 +172,7 @@ i:hover {
   -ms-grid-row-align: center;
       align-self: center;
   border: 1px solid #00000f;
-  background-color: #00000fb8;
+  background-color: black;
   -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
 }
@@ -308,8 +308,7 @@ i:hover {
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
   border: 1px solid #00000f;
-  border-top: none;
-  background-color: #00000f49;
+  background-color: black;
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box .speedBar i {

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
-$font-color: #eee;
-$background-color: #00000f;
+$font-color: rgb(252, 251, 251);
+$background-color: #1111ab;
 $track-color: #ffffff;
 $thumb-color: rgb(7, 0, 0);
 $thumb-border-color: #ffffff;
@@ -128,7 +128,7 @@ progress::-moz-progress-bar {
 
 i {
   color: rgba(184, 182, 182, 0.653);
-  font-size: 0.7rem;
+  font-size: 1.7rem;
 }
 
 i:hover {
@@ -179,7 +179,7 @@ i:hover {
       width: 100%;
       align-self: center;
       border: 1px solid #00000f;
-      background-color: #00000fb8;
+      background-color: rgb(0, 0, 0);
       transition: 0.3s all ease;
 
       .grid-1 {
@@ -274,9 +274,7 @@ i:hover {
             display: flex;
             flex-direction: row-reverse;
             border: 1px solid #00000f;
-            border-top: none;
-            background-color: #00000f49;
-
+            background-color: rgb(0, 0, 0);
             i {
               padding: 0.3rem;
             }
