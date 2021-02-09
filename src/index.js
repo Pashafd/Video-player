@@ -22,6 +22,11 @@ if (supportsVideo) {
   const btnPlay = document.querySelector('.btnPlay');
   const btnPause = document.querySelector('.btnPause');
 
+  //buffering element
+  const buffered = document.createElement('div');
+  buffered.classList.add('buffered');
+  videoControls.appendChild(buffered);
+
   //hide defoult controls
   video.controls = false;
 
@@ -205,13 +210,11 @@ if (supportsVideo) {
 
   video.addEventListener('progress', function () {
     if (video.buffered) {
-      const buffered = document.createElement('div');
-      buffered.classList.add('buffered');
-      videoControls.appendChild(buffered);
-      let bufferedProces = video.buffered.end(0) / video.duration;
+      let bufferedProces =
+        Math.floor(video.buffered.end(0)) / Math.floor(video.duration);
 
       buffered.style.width =
-        Math.floor(bufferedProces * progressBar.scrollWidth) + 'px';
+        Math.floor(bufferedProces * videoContainer.offsetWidth) + 'px';
     }
   });
 }
