@@ -18,7 +18,6 @@ if (supportsVideo) {
   const videoContainer = document.querySelector('.container');
   const video = document.querySelector('video');
   const videoControls = document.querySelector('.options');
-  const icon = document.querySelectorAll('i');
 
   const btnPlay = document.querySelector('.btnPlay');
   const btnPause = document.querySelector('.btnPause');
@@ -197,13 +196,22 @@ if (supportsVideo) {
   video.addEventListener('dblclick', handleFullscreen);
 
   document.addEventListener('keydown', function (event) {
-    let s = Math.floor(
-      video.currentTime - Math.floor(video.currentTime / 60) * 60
-    );
     if (event.key === 'ArrowRight' && video.played) {
-      video.currentTime += 10 * s;
+      video.currentTime += 10;
     } else if (event.key == 'ArrowLeft' && video.played) {
-      video.currentTime -= 10 * s;
+      video.currentTime -= 10;
+    }
+  });
+
+  video.addEventListener('progress', function () {
+    if (video.buffered) {
+      const buffered = document.createElement('div');
+      buffered.classList.add('buffered');
+      videoControls.appendChild(buffered);
+      let bufferedProces = video.buffered.end(0) / video.duration;
+
+      buffered.style.width =
+        Math.floor(bufferedProces * progressBar.scrollWidth) + 'px';
     }
   });
 }
