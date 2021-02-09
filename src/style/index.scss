@@ -8,7 +8,7 @@ $track-border-color: #ffffff;
 
 $font-size: 0.7rem;
 $thumb-height: 10px;
-$thumb-width: 5px;
+$thumb-width: 10px;
 $thumb-border-width: 1px;
 $track-width: 100%;
 $track-height: 5px;
@@ -24,6 +24,7 @@ $contrast: 10%;
 @mixin thumb {
   background: $thumb-color;
   border: $thumb-border-width solid $thumb-border-color;
+  border-radius: 50px;
   box-sizing: border-box;
   cursor: default;
   height: $thumb-height;
@@ -61,6 +62,10 @@ body {
 
   &:focus {
     outline: 0;
+    &::-webkit-slider-thumb {
+      border: 2px solid #fff;
+      box-shadow: 0px 0px 10px #fff;
+    }
 
     &::-ms-fill-lower {
       background: $track-color;
