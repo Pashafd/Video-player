@@ -5,6 +5,7 @@ const supportsVideo = !!document.createElement('video').canPlayType;
 //if browser can play start
 
 if (supportsVideo) {
+  const body = document.querySelector('body');
   const volumeBar = document.querySelector('.volumeBar');
   const videoMuteSoundBtn = document.querySelector('.videoMute');
   const timeVideo = document.querySelector('.timeVideo');
@@ -15,7 +16,7 @@ if (supportsVideo) {
   const setingsVideoBtn = document.querySelector('.setingsVideo');
   const setingsVideoBox = document.querySelector('.setingsVideo-box');
   const fullscreenBtn = document.querySelector('.btnFullscreen');
-  const videoContainer = document.querySelector('.container');
+  const videoContainer = document.querySelector('.video-container');
   const video = document.querySelector('video');
   const videoControls = document.querySelector('.options');
 
@@ -26,6 +27,9 @@ if (supportsVideo) {
   const buffered = document.createElement('div');
   buffered.classList.add('buffered');
   videoControls.appendChild(buffered);
+
+  //for doubleTap event
+  let tapTwice = false;
 
   //hide defoult controls
   video.controls = false;
@@ -200,6 +204,7 @@ if (supportsVideo) {
   fullscreenBtn.addEventListener('click', handleFullscreen);
   video.addEventListener('dblclick', handleFullscreen);
 
+  //jump 10sec video with arrowL & arrowR
   document.addEventListener('keydown', function (event) {
     if (event.key === 'ArrowRight' && video.played) {
       video.currentTime += 10;
@@ -208,6 +213,30 @@ if (supportsVideo) {
     }
   });
 
+  videoContainer.addEventListener('touchstart', function (e) {
+    let touch = e.changedTouches;
+
+    if (!tapTwice) {
+      tapTwice = true;
+      setTimeout(() => {
+        tapTwice = false;
+      }, 300);
+      return false;
+    }
+    e.preventDefault();
+
+    //find dynamic pos video and take he width
+    //if pos touch more then half video container jump to 10s video
+    let halfVideoContainer = videoContainer.offsetWidth / 2;
+    let lenghtToVideoContainer =
+      (body.offsetWidth - videoContainer.offsetWidth) / 2;
+
+    if (touch[0].pageX - lenghtToVideoContainer > halfVideoContainer) {
+      video.currentTime += 10;
+    } else if (touch[0].pageX - lenghtToVideoContainer < halfVideoContainer) {
+      video.currentTime -= 10;
+    }
+  });
   //Buffering visibility
   video.addEventListener('progress', function () {
     if (video.readyState) {
