@@ -64,7 +64,7 @@ body {
     outline: 0;
     &::-webkit-slider-thumb {
       border: 2px solid #fff;
-      box-shadow: 0px 0px 10px #fff;
+      box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.599);
     }
 
     &::-ms-fill-lower {
@@ -344,6 +344,20 @@ i:hover {
   &:hover {
     opacity: 1;
   }
+}
+
+.mouseHoverTime {
+  position: absolute;
+  bottom: 10%;
+  width: 50px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #00000f;
+  color: #fff;
+  text-align: center;
+  font-size: unset;
+
+  animation: fade 1s ease;
 }
 
 .hidden {

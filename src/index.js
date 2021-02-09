@@ -193,7 +193,31 @@ if (supportsVideo) {
   });
 
   video.addEventListener('timeupdate', videoProgress);
+
   progressBar.addEventListener('click', setPlayPosition);
+  progressBar.addEventListener('mouseenter', (e) => {
+    let pos = e.x;
+    let mouseHoverTime = document.createElement('span');
+    let lenghtToVideoContainer =
+      (body.offsetWidth - videoContainer.offsetWidth) / 2;
+    mouseHoverTime.classList.add('mouseHoverTime');
+    let value = (e.pageX - findPos(progressBar)).toFixed(2);
+    let timeToSet = (
+      (video.duration / progressBar.offsetWidth).toFixed(2) * value
+    ).toFixed(2);
+
+    if (!document.querySelector('.mouseHoverTime')) {
+      mouseHoverTime.style.left = pos - lenghtToVideoContainer + 'px';
+      mouseHoverTime.innerText = `${videoTime(timeToSet)}`;
+      videoContainer.append(mouseHoverTime);
+
+      setTimeout(() => {
+        let allMouseHoverTimes = document.querySelectorAll('.mouseHoverTime');
+        allMouseHoverTimes.forEach((item) => item.remove());
+      }, 500);
+    }
+  });
+
   volumeBar.addEventListener('change', changeVolume);
   setingsVideoBtn.addEventListener('click', () =>
     changeVisability(setingsVideoBox)
