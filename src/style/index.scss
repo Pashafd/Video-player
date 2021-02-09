@@ -322,19 +322,19 @@ i:hover {
       }
     }
   }
+  .options > * {
+    padding: 0 3px;
+  }
 
   .buffered {
     background: rgb(84, 84, 84);
     width: 1%;
-    max-width: 100%;
-    height: 2px;
+    max-width: 99%;
+    height: 15px;
     position: absolute;
-    bottom: -2px;
-    left: 3px;
-  }
-
-  .options > * {
-    padding: 0 3px;
+    bottom: 0px;
+    margin: 0 4px;
+    z-index: 9;
   }
 }
 
@@ -355,7 +355,6 @@ i:hover {
   background-color: #00000f;
   color: #fff;
   text-align: center;
-  font-size: unset;
 
   animation: fade 1s ease;
 }

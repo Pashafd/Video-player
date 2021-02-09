@@ -267,11 +267,9 @@ if (supportsVideo) {
   );
   //Buffering visibility
   video.addEventListener('progress', function () {
-    if (video.readyState) {
-      let bufferedProces =
-        Math.floor(video.buffered.end(0)) / Math.floor(video.duration);
-      buffered.style.width =
-        Math.floor(bufferedProces * videoContainer.offsetWidth) + 'px';
-    }
+    let bufferedProces =
+      Math.floor(video.buffered.end(0)) / Math.floor(video.duration);
+    buffered.style.width =
+      Math.floor(bufferedProces * videoContainer.offsetWidth) + 'px';
   });
 }
