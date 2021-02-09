@@ -213,30 +213,34 @@ if (supportsVideo) {
     }
   });
 
-  videoContainer.addEventListener('touchstart', function (e) {
-    let touch = e.changedTouches;
+  videoContainer.addEventListener(
+    'touchstart',
+    function (e) {
+      let touch = e.changedTouches;
 
-    if (!tapTwice) {
-      tapTwice = true;
-      setTimeout(() => {
-        tapTwice = false;
-      }, 300);
-      return false;
-    }
-    e.preventDefault();
+      if (!tapTwice) {
+        tapTwice = true;
+        setTimeout(() => {
+          tapTwice = false;
+        }, 300);
+        return false;
+      }
+      e.preventDefault();
 
-    //find dynamic pos video and take he width
-    //if pos touch more then half video container jump to 10s video
-    let halfVideoContainer = videoContainer.offsetWidth / 2;
-    let lenghtToVideoContainer =
-      (body.offsetWidth - videoContainer.offsetWidth) / 2;
+      //find dynamic pos video and take he width
+      //if pos touch more then half video container jump to 10s video
+      let halfVideoContainer = videoContainer.offsetWidth / 2;
+      let lenghtToVideoContainer =
+        (body.offsetWidth - videoContainer.offsetWidth) / 2;
 
-    if (touch[0].pageX - lenghtToVideoContainer > halfVideoContainer) {
-      video.currentTime += 10;
-    } else if (touch[0].pageX - lenghtToVideoContainer < halfVideoContainer) {
-      video.currentTime -= 10;
-    }
-  });
+      if (touch[0].pageX - lenghtToVideoContainer > halfVideoContainer) {
+        video.currentTime += 10;
+      } else if (touch[0].pageX - lenghtToVideoContainer < halfVideoContainer) {
+        video.currentTime -= 10;
+      }
+    },
+    { passive: true }
+  );
   //Buffering visibility
   video.addEventListener('progress', function () {
     if (video.readyState) {
