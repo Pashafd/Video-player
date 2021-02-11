@@ -20,8 +20,11 @@ if (supportsVideo) {
   const video = document.querySelector('video');
   const videoControls = document.querySelector('.options');
 
-  const btnPlay = document.querySelector('.btnPlay');
+  const btnPlay = document.querySelectorAll('.btnPlay');
   const btnPause = document.querySelector('.btnPause');
+
+  //hide defoult controls
+  video.controls = false;
 
   //buffering element
   const buffered = document.createElement('div');
@@ -30,9 +33,6 @@ if (supportsVideo) {
 
   //for doubleTap event
   let tapTwice = false;
-
-  //hide defoult controls
-  video.controls = false;
 
   // Fullscreen mode
   const fullScreenEnabled = !!(
@@ -83,7 +83,7 @@ if (supportsVideo) {
   }
 
   function changePlayAndPauseButtons() {
-    btnPlay.classList.toggle('hidden');
+    btnPlay.forEach((btn) => btn.classList.toggle('hidden'));
     btnPause.classList.toggle('hidden');
   }
 
@@ -164,14 +164,19 @@ if (supportsVideo) {
     }
   }
 
-  //LISTENER
-  btnPlay.addEventListener('click', () => {
+  //Sub Function
+  function startPlayVideo() {
     playOrPause();
     changePlayAndPauseButtons();
 
     if (timeVideo.innerHTML == '00:00') {
       timeVideo.innerHTML = videoTime(video.duration);
     }
+  }
+
+  //LISTENER
+  btnPlay.forEach((btn) => {
+    btn.addEventListener('click', startPlayVideo);
   });
 
   btnPause.addEventListener('click', () => {

@@ -160,6 +160,19 @@ i:hover {
           animation: effect_dylan 0.2s ease-in-out;
 }
 
+.container .video-container .InFullscreen {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 4rem;
+  -webkit-animation: effect_dylan;
+          animation: effect_dylan;
+  -webkit-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+}
+
 .container .video-container video {
   width: 100%;
   height: 100%;
@@ -199,16 +212,16 @@ i:hover {
           align-items: center;
 }
 
-.container .video-container .options .grid-1 .btnPlay,
-.container .video-container .options .grid-1 .btnPause {
+.container .video-container .options .btnPlay,
+.container .video-container .options .btnPause {
   position: relative;
   cursor: pointer;
   -webkit-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
 }
 
-.container .video-container .options .grid-1 .btnPlay::after,
-.container .video-container .options .grid-1 .btnPause::after {
+.container .video-container .options .btnPlay::after,
+.container .video-container .options .btnPause::after {
   content: '';
   background-color: aliceblue;
   border-radius: 100%;
@@ -221,14 +234,14 @@ i:hover {
           transform: scale(0.001, 0.001);
 }
 
-.container .video-container .options .grid-1 .btnPlay:active,
-.container .video-container .options .grid-1 .btnPause:active {
+.container .video-container .options .btnPlay:active,
+.container .video-container .options .btnPause:active {
   outline: 0;
   color: #fff;
 }
 
-.container .video-container .options .grid-1 .btnPlay:active::after,
-.container .video-container .options .grid-1 .btnPause:active::after {
+.container .video-container .options .btnPlay:active::after,
+.container .video-container .options .btnPause:active::after {
   -webkit-animation: effect_dylan 0.2s ease-out;
           animation: effect_dylan 0.2s ease-out;
 }
