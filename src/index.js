@@ -49,12 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isFullScreen()) {
         if (document.exitFullscreen) document.exitFullscreen();
         setFullscreenData(false);
-        changeVisabilityControls();
       } else {
         if (videoContainer.requestFullscreen)
           videoContainer.requestFullscreen();
         setFullscreenData(true);
-        changeVisabilityControls();
       }
     };
 
@@ -74,8 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function playOrPause() {
       if (video.paused || video.ended) {
         video.play();
+        changeVisabilityControls();
       } else {
         video.pause();
+        changeVisabilityControls();
       }
     }
 

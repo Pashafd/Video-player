@@ -400,6 +400,8 @@ i:hover {
 
 .hoverVideoControls {
   opacity: 0;
+  -webkit-transition: 1.2s opacity ease-out !important;
+  transition: 1.2s opacity ease-out !important;
 }
 
 .hoverVideoControls:hover {

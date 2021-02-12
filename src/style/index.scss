@@ -349,6 +349,7 @@ i:hover {
 
 .hoverVideoControls {
   opacity: 0;
+  transition: 1.2s opacity ease-out !important;
 
   &:hover {
     opacity: 1;
