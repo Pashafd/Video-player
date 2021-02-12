@@ -97,7 +97,6 @@ progress {
 
   position: absolute;
   bottom: 0;
-  z-index: 10;
 
   align-self: center;
   justify-self: center;
@@ -336,14 +335,20 @@ i:hover {
   }
 
   .buffered {
-    background: rgb(84, 84, 84);
-    width: 1%;
-    max-width: 99%;
-    height: 15px;
+    background: rgb(0, 0, 0);
+    height: 2px;
     position: absolute;
-    bottom: 0px;
-    margin: 0 4px;
-    z-index: 9;
+    bottom: -2px;
+    right: 0;
+    z-index: 0;
+    width: 100%;
+
+    .bufferedAmount {
+      display: block;
+      height: 100%;
+      background-color: #777;
+      width: 0;
+    }
   }
 }
 

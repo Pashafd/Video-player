@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //buffering element
     const buffered = document.createElement('div');
+    const bufferedAmount = document.createElement('span');
+    bufferedAmount.classList.add('bufferedAmount');
+    buffered.appendChild(bufferedAmount);
     buffered.classList.add('buffered');
     videoControls.appendChild(buffered);
 
@@ -231,10 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Buffering visibility
     function bufferedVisability() {
-      let bufferedProces =
-        Math.floor(video.buffered.end(0)) / Math.floor(video.duration);
-      buffered.style.width =
-        Math.floor(bufferedProces * videoContainer.offsetWidth) + 'px';
+      let bufferedProces = (video.buffered.end(0) / video.duration) * 100;
+      bufferedAmount.style.width = Math.floor(bufferedProces) + '%';
     }
 
     //LISTENER
@@ -243,6 +244,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     btnPause.addEventListener('click', startPlayVideo);
     video.addEventListener('click', startPlayVideo);
+    document.addEventListener('keydown', (e) => {
+      if (e.key == ' ') {
+        startPlayVideo();
+      }
+
+      jumpDesctop(e);
+    });
     video.addEventListener('timeupdate', videoProgress);
     progressBar.addEventListener('click', setPlayPosition);
     progressBar.addEventListener('mouseenter', TimeProgressHover);
@@ -255,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
     videoMuteSoundBtn.addEventListener('click', muteVolume);
     fullscreenBtn.addEventListener('click', handleFullscreen);
     video.addEventListener('dblclick', handleFullscreen);
-    document.addEventListener('keydown', jumpDesctop);
     videoContainer.addEventListener('touchstart', jumpMobile, {
       passive: true,
     });
