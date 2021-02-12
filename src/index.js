@@ -49,13 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isFullScreen()) {
         if (document.exitFullscreen) document.exitFullscreen();
         setFullscreenData(false);
+        changeVisabilityControls();
       } else {
         if (videoContainer.requestFullscreen)
           videoContainer.requestFullscreen();
         setFullscreenData(true);
+        changeVisabilityControls();
       }
-
-      changeStyleInFullScreen();
     };
 
     const isFullScreen = function () {
@@ -66,14 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
       videoContainer.setAttribute('data-fullscreen', !!state);
     };
 
-    function changeStyleInFullScreen() {
-      if (isFullScreen()) {
-        videoControls.classList.remove('hoverVideoControls');
-        fullscreenBtn.classList.remove('hoverVideoControls');
-      } else {
-        videoControls.classList.add('hoverVideoControls');
-        fullscreenBtn.classList.add('hoverVideoControls');
-      }
+    function changeVisabilityControls() {
+      videoControls.classList.toggle('hoverVideoControls');
+      fullscreenBtn.classList.toggle('hoverVideoControls');
     }
 
     function playOrPause() {
@@ -166,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    //play | pause
+    //play | pause witH sub things
     function startPlayVideo() {
       playOrPause();
       changePlayAndPauseButtons();
@@ -175,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         timeVideo.innerHTML = videoTime(video.duration);
       }
     }
+
     //When the User mousenter the Progres bar with the mouse, show the time
     function TimeProgressHover(e) {
       let pos = e.x;
@@ -233,6 +229,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    //Buffering visibility
+    function bufferedVisability() {
+      let bufferedProces =
+        Math.floor(video.buffered.end(0)) / Math.floor(video.duration);
+      buffered.style.width =
+        Math.floor(bufferedProces * videoContainer.offsetWidth) + 'px';
+    }
+
     //LISTENER
     btnPlay.forEach((btn) => {
       btn.addEventListener('click', startPlayVideo);
@@ -255,13 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
     videoContainer.addEventListener('touchstart', jumpMobile, {
       passive: true,
     });
-
-    //Buffering visibility
-    video.addEventListener('progress', function () {
-      let bufferedProces =
-        Math.floor(video.buffered.end(0)) / Math.floor(video.duration);
-      buffered.style.width =
-        Math.floor(bufferedProces * videoContainer.offsetWidth) + 'px';
-    });
+    video.addEventListener('progress', bufferedVisability);
   }
 });
