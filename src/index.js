@@ -24,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnPlay = document.querySelectorAll('.btnPlay');
     const btnPause = document.querySelector('.btnPause');
 
+    const playlist = [
+      './assets/video/Crab Supernova Explosion [1080p]-aysiMbgml5g.mkv',
+      './assets/video/WhatsBeyond',
+    ];
+
+    function switchVideo(e) {}
+
     //hide defoult controls
     video.controls = false;
 

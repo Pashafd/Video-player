@@ -173,9 +173,17 @@ i:hover {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      font-size: 4rem;
-      animation: effect_dylan;
-      transition: 0.4s ease all;
+      width: 20rem;
+      display: flex;
+      justify-content: space-between;
+
+      i {
+        font-size: 5rem;
+
+        &:active {
+          animation: effect_dylan 0.2s ease;
+        }
+      }
     }
 
     video {

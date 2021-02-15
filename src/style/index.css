@@ -165,11 +165,22 @@ i:hover {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-size: 4rem;
-  -webkit-animation: effect_dylan;
-          animation: effect_dylan;
-  -webkit-transition: 0.4s ease all;
-  transition: 0.4s ease all;
+  width: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .video-container .InFullscreen i {
+  font-size: 5rem;
+}
+
+.container .video-container .InFullscreen i:active {
+  -webkit-animation: effect_dylan 0.2s ease;
+          animation: effect_dylan 0.2s ease;
 }
 
 .container .video-container video {
