@@ -168,6 +168,10 @@ i:hover {
       }
     }
 
+    .centerBtnWrapper {
+      animation: fade 0.2s ease-in;
+    }
+
     .InFullscreen {
       position: absolute;
       left: 50%;
@@ -441,5 +445,18 @@ i:hover {
 
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 568px) {
+  .container {
+    .video-container {
+      .centerBtnWrapper {
+        width: 80%;
+        i {
+          font-size: 4rem;
+        }
+      }
+    }
   }
 }

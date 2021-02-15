@@ -159,6 +159,11 @@ i:hover {
           animation: effect_dylan 0.2s ease-in-out;
 }
 
+.container .video-container .centerBtnWrapper {
+  -webkit-animation: fade 0.2s ease-in;
+          animation: fade 0.2s ease-in;
+}
+
 .container .video-container .InFullscreen {
   position: absolute;
   left: 50%;
@@ -561,6 +566,15 @@ i:hover {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 568px) {
+  .container .video-container .centerBtnWrapper {
+    width: 80%;
+  }
+  .container .video-container .centerBtnWrapper i {
+    font-size: 4rem;
   }
 }
 /*# sourceMappingURL=index.css.map */

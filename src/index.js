@@ -98,8 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function changeVisabilityControls() {
       videoControls.classList.toggle('hoverVideoControls');
-      centerBtns.classList.toggle('hoverVideoControls');
       fullscreenBtn.classList.toggle('hoverVideoControls');
+
+      if (video.paused || video.ended) {
+        centerBtns.style.display = 'flex';
+      } else {
+        centerBtns.style.display = 'none';
+      }
     }
 
     function playOrPause() {
