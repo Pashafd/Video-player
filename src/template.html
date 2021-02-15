@@ -21,7 +21,7 @@
   <body>
     <div class="container">
       <div class="video-container">
-        <video controls id="video">
+        <video controls id="video" preload="auto">
           <source
             src="./assets/video/Crab Supernova Explosion [1080p]-aysiMbgml5g.mkv"
             src="https://youtu.be/Z-VfaG9ZN_U"
@@ -29,12 +29,12 @@
           />
         </video>
 
-        <i class="fas fa-expand-alt btnFullscreen"></i>
+        <i class="fas fa-expand btnFullscreen"></i>
 
         <div class="centerBtnWrapper InFullscreen">
-          <i class="fas fa-arrow-circle-left"></i>
+          <i class="fas fa-arrow-circle-left btnPrev"></i>
           <i class="fas fa-play-circle btnPlay"></i>
-          <i class="fas fa-arrow-circle-right"></i>
+          <i class="fas fa-arrow-circle-right btnNext"></i>
         </div>
 
         <div class="options">
@@ -44,6 +44,11 @@
           </div>
 
           <div class="grid-2">
+            <div class="times">
+              <div class="timeVideo">00:00</div>
+              <div class="timeCur">00:00</div>
+            </div>
+
             <div class="setingsVideo-box hidden">
               <div class="speedBar">
                 <input
@@ -71,11 +76,6 @@
               <i class="fas fa-volume-up videoMute" id="videoMute"></i>
             </div>
             <i class="fas fa-cog setingsVideo"></i>
-
-            <div class="times">
-              <div class="timeVideo">00:00</div>
-              <div class="timeCur">00:00</div>
-            </div>
           </div>
 
           <progress

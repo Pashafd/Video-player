@@ -16,13 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.querySelector('#videoProgress-bar');
     const setingsVideoBtn = document.querySelector('.setingsVideo');
     const setingsVideoBox = document.querySelector('.setingsVideo-box');
-    const fullscreenBtn = document.querySelector('.btnFullscreen');
     const videoContainer = document.querySelector('.video-container');
     const video = document.querySelector('video');
     const videoControls = document.querySelector('.options');
 
     const btnPlay = document.querySelectorAll('.btnPlay');
     const btnPause = document.querySelector('.btnPause');
+    const btnPrev = document.querySelector('.btmPrev');
+    const btnNext = document.querySelector('.btmNext');
+    const fullscreenBtn = document.querySelector('.btnFullscreen');
+
+    const centerBtns = document.querySelector('.centerBtnWrapper');
 
     const playlist = [
       './assets/video/Crab Supernova Explosion [1080p]-aysiMbgml5g.mkv',
@@ -76,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function changeVisabilityControls() {
       videoControls.classList.toggle('hoverVideoControls');
-      fullscreenBtn.classList.toggle('hoverVideoControls');
+      centerBtns.classList.toggle('hoverVideoControls');
     }
 
     function playOrPause() {

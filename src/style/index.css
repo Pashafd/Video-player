@@ -105,6 +105,7 @@ progress::-moz-progress-bar {
 i {
   color: rgba(184, 182, 182, 0.653);
   font-size: 2.1rem;
+  cursor: pointer;
 }
 
 i:hover {
@@ -149,7 +150,6 @@ i:hover {
           justify-content: center;
   right: 0.5rem;
   top: 0.5rem;
-  cursor: pointer;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
@@ -165,7 +165,7 @@ i:hover {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 20rem;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -225,7 +225,6 @@ i:hover {
 .container .video-container .options .btnPlay,
 .container .video-container .options .btnPause {
   position: relative;
-  cursor: pointer;
   -webkit-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
 }
