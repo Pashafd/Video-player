@@ -32,7 +32,7 @@ $contrast: 10%;
 }
 
 html {
-  background-color: $background-color;
+  background: linear-gradient(to top, #1111ab, #101042);
   font-size: $font-size;
   color: $font-color;
   font-family: 'Sriracha', cursive;
@@ -153,6 +153,7 @@ i:hover {
     display: flex;
     flex-direction: column;
     position: relative;
+    box-shadow: 10px 10px 20px #000000;
 
     .btnFullscreen {
       position: absolute;
@@ -280,6 +281,7 @@ i:hover {
           cursor: pointer;
           transition: all 0.2s ease-in;
           padding: 0.2rem;
+          position: relative;
         }
 
         .setingsVideo:active {
@@ -287,18 +289,19 @@ i:hover {
         }
 
         .setingsVideo-box {
-          position: absolute;
-          bottom: 135%;
-          right: 10%;
-          padding: 0.2rem;
-          animation: fadeIn 0.2s ease;
-          transition: all ease 2s;
+          position: relative;
 
           .speedBar {
+            animation: fadeIn 0.2s ease;
+            transform: rotate(-90deg);
             display: flex;
             flex-direction: row-reverse;
-            border: 1px solid #00000f;
-            background-color: rgb(0, 0, 0);
+
+            width: 6rem;
+
+            position: absolute;
+            bottom: 150%;
+            left: -73%;
             i {
               padding: 0.3rem;
             }
@@ -386,7 +389,7 @@ i:hover {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 @keyframes roll {

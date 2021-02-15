@@ -315,6 +315,7 @@ i:hover {
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   padding: 0.2rem;
+  position: relative;
 }
 
 .container .video-container .options .grid-2 .setingsVideo:active {
@@ -323,17 +324,14 @@ i:hover {
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box {
-  position: absolute;
-  bottom: 135%;
-  right: 10%;
-  padding: 0.2rem;
-  -webkit-animation: fadeIn 0.2s ease;
-          animation: fadeIn 0.2s ease;
-  -webkit-transition: all ease 2s;
-  transition: all ease 2s;
+  position: relative;
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box .speedBar {
+  -webkit-animation: fadeIn 0.2s ease;
+          animation: fadeIn 0.2s ease;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -341,8 +339,10 @@ i:hover {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  border: 1px solid #00000f;
-  background-color: black;
+  width: 6rem;
+  position: absolute;
+  bottom: 150%;
+  left: -73%;
 }
 
 .container .video-container .options .grid-2 .setingsVideo-box .speedBar i {
@@ -442,7 +442,7 @@ i:hover {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 @-webkit-keyframes roll {

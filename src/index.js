@@ -1,10 +1,9 @@
-// import './style/index.scss';
+import './style/index.scss';
 // import style
 
 document.addEventListener('DOMContentLoaded', () => {
   const supportsVideo = !!document.createElement('video').canPlayType;
   //if browser can play start
-
   if (supportsVideo) {
     const body = document.querySelector('body');
     const volumeBar = document.querySelector('.volumeBar');
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const speedBarBtn = document.querySelector('.speedBtn');
     const progressBar = document.querySelector('#videoProgress-bar');
     const setingsVideoBtn = document.querySelector('.setingsVideo');
-    const setingsVideoBox = document.querySelector('.setingsVideo-box');
+    const setingsVideoBox = document.querySelector('.speedBar');
     const videoContainer = document.querySelector('.video-container');
     const video = document.querySelector('video');
     const videoControls = document.querySelector('.options');
@@ -26,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullscreenBtn = document.querySelector('.btnFullscreen');
     const centerBtns = document.querySelector('.centerBtnWrapper');
 
+    //switch video
     let i = 0;
     const playlist = [
-      './assets/video/Supernova.mkv',
+      './assets/video/Supernova.mp4',
       './assets/video/WhatsBeyond.mp4',
     ];
-
     video.src = playlist[i];
 
     function prevVideo() {
@@ -255,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       //find pos videoConatiner and take hes width
-      //if user touch more then half video container jump to 10s video
+      //if user dbtouch more then half video container jump to 10s video
       let halfVideoContainer = videoContainer.offsetWidth / 2;
       let lenghtToVideoContainer =
         (body.offsetWidth - videoContainer.offsetWidth) / 2;
