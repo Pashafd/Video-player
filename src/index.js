@@ -252,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
         return false;
       }
+      e.preventDefault();
 
       //find pos videoConatiner and take hes width
       //if user dbtouch more then half video container jump to 10s video
@@ -299,9 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     videoMuteSoundBtn.addEventListener('click', muteVolume);
     fullscreenBtn.addEventListener('click', handleFullscreen);
     video.addEventListener('dblclick', handleFullscreen);
-    videoContainer.addEventListener('touchstart', jumpMobile, {
-      passive: true,
-    });
+    videoContainer.addEventListener('touchstart', jumpMobile);
     video.addEventListener('progress', bufferedVisability);
   }
 });
