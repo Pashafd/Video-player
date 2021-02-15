@@ -19,21 +19,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoContainer = document.querySelector('.video-container');
     const video = document.querySelector('video');
     const videoControls = document.querySelector('.options');
-
     const btnPlay = document.querySelectorAll('.btnPlay');
     const btnPause = document.querySelector('.btnPause');
-    const btnPrev = document.querySelector('.btmPrev');
-    const btnNext = document.querySelector('.btmNext');
+    const btnPrev = document.querySelector('.btnPrev');
+    const btnNext = document.querySelector('.btnNext');
     const fullscreenBtn = document.querySelector('.btnFullscreen');
-
     const centerBtns = document.querySelector('.centerBtnWrapper');
 
+    let i = 0;
     const playlist = [
-      './assets/video/Crab Supernova Explosion [1080p]-aysiMbgml5g.mkv',
-      './assets/video/WhatsBeyond',
+      './assets/video/Supernova.mkv',
+      './assets/video/WhatsBeyond.mp4',
     ];
 
-    function switchVideo(e) {}
+    video.src = playlist[i];
+
+    function prevVideo() {
+      if (i === 0) {
+        return;
+      } else {
+        i--;
+      }
+      video.src = playlist[i];
+    }
+
+    function nextVideo() {
+      if (i >= playlist.length - 1) {
+        return;
+      } else {
+        i++;
+      }
+      console.log(i);
+      video.src = playlist[i];
+    }
 
     //hide defoult controls
     video.controls = false;
@@ -81,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function changeVisabilityControls() {
       videoControls.classList.toggle('hoverVideoControls');
       centerBtns.classList.toggle('hoverVideoControls');
+      fullscreenBtn.classList.toggle('hoverVideoControls');
     }
 
     function playOrPause() {
@@ -262,6 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       jumpDesctop(e);
     });
+    btnPrev.addEventListener('click', prevVideo);
+    btnNext.addEventListener('click', nextVideo);
     video.addEventListener('timeupdate', videoProgress);
     progressBar.addEventListener('click', setPlayPosition);
     progressBar.addEventListener('mouseenter', TimeProgressHover);
