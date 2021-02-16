@@ -120,8 +120,10 @@ function videoTime(time) {
 function videoProgress() {
   let progress =
     Math.floor(video.currentTime) / (Math.floor(video.duration) / 100);
-  progressBar.value = progress;
-  timeCur.innerHTML = videoTime(video.currentTime);
+  if (video.currentTime > 0) {
+    progressBar.value = progress;
+    timeCur.innerHTML = videoTime(video.currentTime);
+  }
 }
 
 // Set the play position of the video based on the mouse click at x
@@ -246,9 +248,10 @@ function jumpMobile(e) {
 
 //Buffering visibility
 function bufferedVisability() {
-  console.log(video.buffered.end(0));
-  let bufferedProces = (video.buffered.end(0) / video.duration) * 100;
-  bufferedAmount.style.width = Math.floor(bufferedProces) + '%';
+  if (video.duration > 0) {
+    let bufferedProces = (video.buffered.end(0) / video.duration) * 100;
+    bufferedAmount.style.width = Math.floor(bufferedProces) + '%';
+  }
 }
 
 //switch video
@@ -278,6 +281,8 @@ function nextVideo() {
 
 //LISTENER
 video.addEventListener('loadedmetadata', videoProgress);
+video.addEventListener('timeupdate', videoProgress);
+
 btnPlay.forEach((btn) => {
   btn.addEventListener('click', startPlayVideo);
 });
