@@ -16,16 +16,18 @@
       href="./assets/images/favicon.svg"
       type="image/x-icon"
     />
-    <!-- <link rel="stylesheet" href="./style/index.css" type="text/css" /> -->
+    <link rel="stylesheet" href="./style/index.css" type="text/css" />
   </head>
   <body>
     <div class="container">
       <div class="video-container">
-        <video controls id="video" preload="auto"></video>
+        <video controls class="video" preload="metadata">
+          <source src="./assets/video/Supernova.mp4" type="video/mp4"></source>
+        </video>
 
-        <i class="fas fa-expand btnFullscreen"></i>
+        <i class="fas fa-expand btnFullscreen hidden"></i>
 
-        <div class="centerBtnWrapper InFullscreen">
+        <div class="centerBtnWrapper InFullscreen hidden">
           <i class="fas fa-arrow-circle-left btnPrev"></i>
           <i class="fas fa-play-circle btnPlay"></i>
           <i class="fas fa-arrow-circle-right btnNext"></i>
@@ -83,6 +85,6 @@
       </div>
     </div>
 
-    <!-- <script src="index.js"></script> -->
+    <script src="index.js"></script>
   </body>
 </html>

@@ -160,8 +160,8 @@ i:hover {
       display: flex;
       align-items: center;
       justify-content: center;
-      right: 0.5rem;
-      top: 0.5rem;
+      right: 0.4rem;
+      top: 0;
       transition: all 0.2s ease-in;
 
       &:active {
@@ -206,8 +206,9 @@ i:hover {
       width: 100%;
       align-self: center;
       border: 1px solid #00000f;
-      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.408);
       transition: 0.3s all ease;
+      // padding: 4px 0;
 
       .grid-1 {
         justify-self: start;
@@ -344,9 +345,6 @@ i:hover {
       }
     }
   }
-  .options > * {
-    padding: 0 3px;
-  }
 
   .buffered {
     background: rgb(0, 0, 0);
@@ -457,7 +455,7 @@ i:hover {
       .centerBtnWrapper {
         width: 80%;
         i {
-          font-size: 4rem;
+          font-size: 2.5rem;
         }
       }
     }
