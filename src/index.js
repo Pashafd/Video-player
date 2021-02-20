@@ -3,16 +3,14 @@
 
 // document.addEventListener('DOMContentLoaded', () => {
 const video = document.querySelector('video');
-const videoControls = document.querySelector('.options');
+const options = document.querySelector('.options');
 const fullscreenBtn = document.querySelector('.btnFullscreen');
-const centerBtns = document.querySelector('.centerBtnWrapper');
 const supportsVideo = !!document.createElement('video').canPlayType;
 //if browser support player show custom cntrls
 if (supportsVideo) {
   //hide defoult controls
   video.controls = false;
-  videoControls.classList.remove('hidden');
-  centerBtns.classList.remove('hidden');
+  options.classList.remove('hidden');
   fullscreenBtn.classList.remove('hidden');
 }
 
@@ -23,7 +21,7 @@ const timeVideo = document.querySelector('.timeVideo');
 const timeCur = document.querySelector('.timeCur');
 const videoSpeedBar = document.querySelector('.videoSpeed');
 const speedBarBtn = document.querySelector('.speedBtn');
-const progressBar = document.querySelector('#videoProgress-bar');
+const progressBar = document.querySelector('.videoProgress-bar');
 const setingsVideoBtn = document.querySelector('.setingsVideo');
 const setingsVideoBox = document.querySelector('.speedBar');
 const videoContainer = document.querySelector('.video-container');
@@ -39,7 +37,7 @@ const bufferedAmount = document.createElement('span');
 bufferedAmount.classList.add('bufferedAmount');
 buffered.appendChild(bufferedAmount);
 buffered.classList.add('buffered');
-videoControls.appendChild(buffered);
+options.appendChild(buffered);
 
 //for doubleTap event
 let tapTwice = false;
@@ -73,14 +71,8 @@ const setFullscreenData = function (state) {
 };
 
 function changeVisabilityControls() {
-  videoControls.classList.toggle('hoverVideoControls');
+  options.classList.toggle('hoverVideoControls');
   fullscreenBtn.classList.toggle('hoverVideoControls');
-
-  if (video.paused || video.ended) {
-    centerBtns.style.display = 'flex';
-  } else {
-    centerBtns.style.display = 'none';
-  }
 }
 
 function playOrPause() {

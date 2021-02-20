@@ -107,6 +107,7 @@ i {
   color: rgba(184, 182, 182, 0.653);
   font-size: 2.1rem;
   cursor: pointer;
+  padding: 0 0.1rem;
 }
 
 i:hover {
@@ -157,16 +158,6 @@ i:hover {
   transition: all 0.2s ease-in;
 }
 
-.container .video-container .btnFullscreen:active {
-  -webkit-animation: effect_dylan 0.2s ease-in-out;
-          animation: effect_dylan 0.2s ease-in-out;
-}
-
-.container .video-container .centerBtnWrapper {
-  -webkit-animation: fade 0.2s ease-in;
-          animation: fade 0.2s ease-in;
-}
-
 .container .video-container .InFullscreen {
   position: absolute;
   left: 50%;
@@ -177,18 +168,13 @@ i:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.container .video-container .InFullscreen i {
-  font-size: 5rem;
-}
-
-.container .video-container .InFullscreen i:active {
-  -webkit-animation: effect_dylan 0.2s ease;
-          animation: effect_dylan 0.2s ease;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 5rem !important;
 }
 
 .container .video-container video {
@@ -565,15 +551,6 @@ i:hover {
   }
   100% {
     opacity: 1;
-  }
-}
-
-@media (max-width: 568px) {
-  .container .video-container .centerBtnWrapper {
-    width: 80%;
-  }
-  .container .video-container .centerBtnWrapper i {
-    font-size: 2.5rem;
   }
 }
 /*# sourceMappingURL=index.css.map */
