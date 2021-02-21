@@ -1,4 +1,4 @@
-// import './style/index.scss';
+import './style/index.scss';
 // import style
 
 // document.addEventListener('DOMContentLoaded', () => {
@@ -118,8 +118,8 @@ function videoProgress() {
   }
 }
 
-// Set the play position of the video based on the mouse click at x
-function setPlayPosition(e) {
+// rewind the video to the current moment on the progress line
+function rewindProgressBar(e) {
   let value = (e.pageX - findPos(progressBar)).toFixed(2);
   let timeToSet = (
     (video.duration / progressBar.offsetWidth).toFixed(2) * value
@@ -289,7 +289,7 @@ document.addEventListener('keydown', (e) => {
 });
 btnPrev.addEventListener('click', prevVideo);
 btnNext.addEventListener('click', nextVideo);
-progressBar.addEventListener('click', setPlayPosition);
+progressBar.addEventListener('click', rewindProgressBar);
 progressBar.addEventListener('mouseenter', TimeProgressHover);
 volumeBar.addEventListener('change', changeVolume);
 setingsVideoBtn.addEventListener('click', () =>
