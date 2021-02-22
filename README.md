@@ -6,7 +6,7 @@
 ```shell
 git clone https://github.com/Pashafd/Pashafd.github.io/edit/main/video-player
 cd /video-player
-yarn add / npm install
+yarn / npm install  
 ```
   scripts:
   
