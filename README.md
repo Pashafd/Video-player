@@ -24,9 +24,9 @@ If you look at my code and help me study I’ll be happy
 ## Links
 ```shell
 inspired by this article https://freshman.tech/custom-html5-video/
-```
-[ demo ](https://pashafd.github.io/video-player/)  
 
+[ demo ](https://pashafd.github.io/video-player/)  
+```
 ## Licensing
 
 "The code in this project is licensed under MIT license."
