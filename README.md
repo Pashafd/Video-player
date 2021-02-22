@@ -25,7 +25,7 @@ If you look at my code and help me study I’ll be happy
 ```shell
 inspired by this article https://freshman.tech/custom-html5-video/
 ```
-Demo Pashafd.github.io/video-player/
+[ demo ](Pashafd.github.io/video-player/)  
 
 ## Licensing
 
